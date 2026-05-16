@@ -2,1545 +2,1157 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="title" content="Veridia Energy – Sustainable Fuels & Carbon Solutions">
-<meta name="description" content="Veridia Energy converts CO₂ and biomass into sustainable aviation fuel, chemicals, and advanced materials.">
-<meta name="keywords" content="carbon capture, sustainable fuel, biomass, SAF, green energy, CCUS">
-<meta name="author" content="Veridia Energy">
-<meta property="og:title" content="Veridia Energy">
-<meta property="og:description" content="Turning Waste Carbon Into Sustainable Fuel">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://veridiaenergy.com">
-<meta property="og:image" content="https://veridiaenergy.com/images/preview.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Veridia Energy — Turning Waste Into the Fuels of Tomorrow</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
 <style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 14px; /* Reduced from 16px to scale down rem values globally */
+}
 :root {
-  --page: #f2f7f5;
-  --surface: #ffffff;
-  --surface-2: #e6f0ec;
-  --text: #3a4a45;
-  --muted: #5f736c;
-  --line: #c5ddd4;
-  --accent: #2f6d5e;
-  --accent-hover: #3d8876;
-  --accent-soft: rgba(47, 109, 94, 0.12);
-  --accent-pale: #e8f3ef;
-  --ink: #3a4a45;
-  --ink-soft: #3a4a45;
-  --lime: #2f6d5e;
-  --leaf: #2f6d5e;
-  --amber: #2f6d5e;
-  --night: #3a4a45;
-  --cream: #3a4a45;
-  --glass: rgba(47, 109, 94, 0.06);
-  --border: #c5ddd4;
-  --header-h: 4rem;
-  --radius: 8px;
-  --radius-lg: 18px;
-  --shadow: 0 8px 32px rgba(47, 109, 94, 0.08);
-  --shadow-soft: 0 3px 14px rgba(47, 109, 94, 0.08);
-  --shadow-strong: 0 18px 50px rgba(47, 109, 94, 0.16);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  background:
-    radial-gradient(circle at 10% 0%, rgba(47,109,94,.12) 0%, transparent 26%),
-    radial-gradient(circle at 90% 18%, rgba(47,109,94,.08) 0%, transparent 20%),
-    var(--page);
-  color:var(--text);
-  font-family:'Literata',Georgia,serif;
-  font-size:17px;
-  line-height:1.72;
-  overflow-x:hidden;
+  --dark: #1e2c27;       
+  --text: #384d45;       
+  --text-light: #5a7067; 
+  
+  /* The Light White-Green Mix Palette */
+  --bg-pure: #ffffff;    
+  --bg-light: #f4f8f6;   
+  --bg-tint: #eaf2ee;    
+  
+  --green: #25855a;      
+  --green-hover: #1c6b47;
+  --mint: #d1ebd9;       
+  --border: rgba(37, 133, 90, 0.12); 
+  
+  --font-head: 'Sora', sans-serif;
+  --font-body: 'Sora', sans-serif;
 }
 
-.app{min-height:100vh;}
-
-.site-header{
-  position:fixed;z-index:300;top:0;left:0;right:0;
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
-  gap:.6rem 1.25rem;
-  min-height:var(--header-h);
-  padding:.65rem clamp(1rem,4vw,2rem);
-  background:rgba(255,255,255,.97);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-  box-shadow:0 6px 22px rgba(47,109,94,.09);
-}
-.brand{
-  font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;
-  letter-spacing:-0.02em;color:var(--text);line-height:1.15;
-  display:flex;align-items:center;gap:.55rem;
-}
-.brand-accent{color:var(--accent);font-weight:700;}
-.brand-logo{
-  width:52px;height:52px;object-fit:contain;display:block;
-}
-.nav-toggle{
-  display:none;width:44px;height:44px;border:none;background:var(--accent-pale);
-  border-radius:var(--radius);cursor:pointer;flex-direction:column;
-  align-items:center;justify-content:center;gap:5px;border:1px solid var(--line);
-}
-.nav-toggle span{display:block;width:20px;height:2px;background:var(--accent);border-radius:2px;transition:.2s;}
-.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
-.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-@media(max-width:900px){.nav-toggle{display:flex;}}
-
-.site-nav{
-  display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.2rem;
-}
-@media(max-width:900px){
-  .site-nav{
-    flex-basis:100%;flex-direction:column;align-items:stretch;
-    max-height:0;overflow:hidden;opacity:0;pointer-events:none;
-    transition:max-height .35s ease,opacity .2s,padding .2s;
-    padding:0;border-top:1px solid transparent;
-  }
-  .site-nav.open{
-    max-height:min(72vh,520px);opacity:1;pointer-events:auto;
-    padding:.75rem 0 0;border-top-color:var(--line);
-  }
-}
-.nav-link{
-  font-family:'Sora',sans-serif;font-size:.78rem;font-weight:600;
-  letter-spacing:.04em;text-transform:uppercase;
-  color:var(--muted);padding:.55rem .95rem;border-radius:999px;
-  cursor:pointer;transition:background .2s,color .2s;
-}
-.nav-link:hover,.nav-link.active{color:var(--accent);background:var(--accent-soft);}
-@media(max-width:900px){
-  .nav-link{text-align:center;border-radius:var(--radius);}
+body {
+  font-family: var(--font-body);
+  background: var(--bg-pure);
+  color: var(--text);
+  line-height: 1.6; /* Marginally tightened */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-section{display:none;padding-top:var(--header-h);min-height:100vh;}
-section.active{display:block;}
-
-.hero{position:relative;}
-.hero-manifesto{
-  background:linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(232,243,239,.84) 100%);
-  padding:clamp(2.75rem,7vw,4.5rem) clamp(1.25rem,4vw,2.5rem) clamp(2rem,5vw,3rem);
-  border-bottom:1px solid var(--line);
+/* ─── TYPOGRAPHY GRAPHIC UTILITIES ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--dark) 30%, var(--green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.hero-kicker{
-  font-family:'Sora',sans-serif;font-size:.7rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:block;
-}
-.hero-inner{max-width:56rem;margin:0 auto;}
-h1{
-  font-family:'Sora',sans-serif;font-weight:800;
-  font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;
-  letter-spacing:-0.035em;color:var(--text);margin-bottom:1.25rem;max-width:none;
-}
-h1 em{font-style:normal;color:var(--accent);}
-.hero-sub{
-  font-size:1.05rem;color:var(--muted);line-height:1.75;
-  max-width:36rem;margin-bottom:1.85rem;
-}
-.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;}
-.btn-primary{
-  font-family:'Sora',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
-  background:var(--accent);color:#fff;
-  padding:.9rem 1.65rem;border-radius:999px;cursor:pointer;border:none;
-  transition:transform .2s,background .2s;
-}
-.btn-primary:hover{transform:translateY(-2px);background:var(--accent-hover);}
-.btn-outline{
-  font-family:'Sora',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
-  border:2px solid var(--accent);color:var(--accent);background:transparent;
-  padding:.82rem 1.5rem;border-radius:999px;cursor:pointer;
-  transition:background .2s;
-}
-.btn-outline:hover{background:var(--accent-soft);}
-
-.hero-pipeline{
-  max-width:min(56rem,calc(100% - 2.5rem));margin:0 auto;
-  padding:clamp(1.35rem,3vw,2rem) 0 clamp(2.5rem,6vw,3.5rem);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.hero-pipeline-label{
-  font-family:'Sora',sans-serif;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:1.1rem;padding-bottom:.45rem;border-bottom:2px solid var(--accent-soft);
-}
-.pipeline-stage{
-  font-family:'Sora',sans-serif;font-size:.62rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
-  margin:.3rem 0 .55rem;
-}
-.pipeline-row{display:grid;gap:.75rem;grid-template-columns:1fr;}
-@media(min-width:640px){
-  .pipeline-row--in{grid-template-columns:1fr 1fr;}
-  .pipeline-row--out{grid-template-columns:repeat(3,1fr);}
-}
-.engine-core{
-  margin:.95rem 0 1rem;
-  padding:.2rem 0 .35rem;
-  text-align:center;
-  position:relative;
-}
-.engine-core::before{
-  content:'';
-  position:absolute;
-  left:50%;
-  top:-18px;
-  transform:translateX(-50%);
-  width:2px;
-  height:18px;
-  background:linear-gradient(180deg,var(--accent),rgba(47,109,94,0));
-}
-.engine-core::after{
-  content:'';
-  position:absolute;
-  left:50%;
-  bottom:-18px;
-  transform:translateX(-50%);
-  width:2px;
-  height:18px;
-  background:linear-gradient(0deg,var(--accent),rgba(47,109,94,0));
-}
-.engine-title{
-  font-family:'Sora',sans-serif;font-size:.8rem;font-weight:700;color:var(--accent);
-  margin-bottom:.2rem;
-}
-.engine-sub{
-  font-size:.78rem;color:var(--muted);margin:0;
-}
-.flow-item{
-  display:flex;align-items:flex-start;gap:.75rem;padding:.55rem 0;
-  border:none;background:transparent;box-shadow:none;
-}
-.flow-item:hover{transform:none;}
-.flow-icon{
-  width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;
-  background:transparent;border:none;color:var(--accent);
-}
-.fi-green,.fi-amber,.fi-blue{background:transparent;border:none;}
-.flow-label{font-family:'Sora',sans-serif;font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.08rem;}
-.flow-sub{font-size:.76rem;color:var(--muted);margin-top:.12rem;}
-.flow-arrow{
-  text-align:center;font-family:'Sora',sans-serif;font-size:.72rem;letter-spacing:.2em;
-  color:var(--accent);margin:.55rem 0 .65rem;padding:0;
-  background:transparent;border:none;
+.accent-text {
+  color: var(--green);
 }
 
-.section-wrap{
-  max-width:min(68rem,calc(100vw - 2.5rem));margin:0 auto;
-  padding:clamp(3rem,9vw,6rem) clamp(1rem,4vw,2.5rem);
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 4%;
+  height: 72px; /* Reduced from 80px */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.page-hero-inner{max-width:min(68rem,calc(100vw - 2.5rem));margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem);}
-
-.section-label{
-  font-family:'Sora',sans-serif;font-size:.68rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--accent);font-weight:700;
-  display:inline-block;margin-bottom:1rem;
-  padding:.2rem 0;border-bottom:2px solid var(--accent);
+nav.scrolled {
+  height: 60px; /* Reduced from 68px */
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 30px rgba(37, 133, 90, 0.05);
 }
-.section-label--center{display:block;text-align:center;margin-left:auto;margin-right:auto;}
-.page-hero-title{
-  font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.85rem,4.2vw,3.15rem);
-  line-height:1.06;letter-spacing:-0.035em;color:var(--text);margin-bottom:1.25rem;
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
 }
-.page-hero-title em{font-style:normal;color:var(--accent);}
-.page-hero-title--blog{font-size:clamp(1.65rem,3.6vw,2.75rem);}
-.post-card--featured{border:2px solid var(--accent);background:var(--surface);}
-.ptag--accent{background:var(--accent-soft)!important;color:var(--leaf)!important;border-color:rgba(13,148,136,.35)!important;}
-.footer-tagline{font-size:.75rem;color:var(--muted);margin:0;}
-
-h2{
-  font-family:'Sora',sans-serif;font-weight:800;
-  font-size:clamp(1.5rem,3.4vw,2.45rem);line-height:1.1;letter-spacing:-0.03em;
-  color:var(--text);margin-bottom:1rem;
+.nav-logo img {
+  height: 32px; width: 32px; border-radius: 6px; object-fit: cover; /* Slightly smaller logo */
 }
-h2 em{font-style:normal;color:var(--accent);}
-h3{font-family:'Sora',sans-serif;font-weight:700;font-size:1.02rem;color:var(--text);margin-bottom:.4rem;}
-p{color:var(--text);margin-bottom:1rem;}
-.lead{font-size:1.05rem;color:var(--muted);line-height:1.82;max-width:40rem;}
-
-.divider{border:none;border-top:1px solid var(--line);margin:2.75rem 0;}
-
-/* Problem — editorial: text block + offset stat mosaic */
-.problem-band{
-  background:var(--surface-2);
-  padding:clamp(3rem,8vw,5.5rem) clamp(1rem,4vw,2.5rem);
-  border-top:1px solid var(--line);
+.nav-logo-text {
+  font-size: 12px; font-weight: 700; letter-spacing: .12em; /* Reduced from 14px */
+  text-transform: uppercase; color: var(--dark);
 }
-.problem-band .inner{
-  max-width:min(68rem,calc(100vw - 2.5rem));margin:0 auto;
-  display:grid;gap:2.5rem;align-items:start;
+.nav-links {
+  display: flex; gap: 32px; list-style: none; /* Slightly tighter gap */
 }
-@media(min-width:880px){
-  .problem-band .inner{
-    grid-template-columns:1.15fr 0.85fr;
-    gap:3.5rem;
-  }
+.nav-links a {
+  text-decoration: none; font-size: 12.5px; font-weight: 500; /* Reduced from 13.5px */
+  letter-spacing: .02em; color: var(--text-light);
+  transition: color 0.25s ease;
 }
-.problem-copy h2{margin-bottom:1rem;}
-.problem-stat-row{
-  display:grid;gap:.85rem;
-  grid-template-areas:'a''b''c';
+.nav-links a:hover { color: var(--green); }
+.nav-contact {
+  font-size: 12px; font-weight: 600; letter-spacing: .05em; /* Reduced from 13px */
+  text-decoration: none; color: var(--green);
+  border: 1px solid rgba(37, 133, 90, 0.3);
+  padding: 8px 20px; border-radius: 30px; /* Adjusted padding */
+  transition: all 0.3s ease;
 }
-@media(min-width:550px){
-  .problem-stat-row{
-    grid-template-columns:1fr 1fr;
-    grid-template-areas:'a a''b c';
-  }
-}
-.problem-stat-row .pstat:nth-child(1){grid-area:a;}
-.problem-stat-row .pstat:nth-child(2){grid-area:b;}
-.problem-stat-row .pstat:nth-child(3){grid-area:c;}
-.pstat{
-  padding:1.5rem 1.4rem;border-radius:var(--radius-lg);
-  background:var(--surface);border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  transition:transform .2s;
-}
-.pstat:hover{transform:scale(1.02);}
-.pstat-num{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--accent);line-height:1.05;}
-.pstat-label{font-size:.88rem;color:var(--muted);margin-top:.5rem;line-height:1.55;}
-
-/* Bento solutions */
-.solution-intro{max-width:40rem;}
-.solution-grid{
-  display:grid;gap:.9rem;margin-top:2rem;
-  grid-template-columns:1fr;
-}
-@media(min-width:800px){
-  .solution-grid{
-    grid-template-columns:repeat(6,1fr);
-    grid-auto-rows:minmax(100px,auto);
-  }
-  .sol-card:nth-child(1){
-    grid-column:span 4;grid-row:span 2;
-    min-height:260px;
-  }
-  .sol-card:nth-child(2){grid-column:span 2;}
-  .sol-card:nth-child(3){grid-column:span 3;}
-  .sol-card:nth-child(4){grid-column:span 3;}
-}
-.sol-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
-  padding:1.5rem 1.5rem 1.6rem;position:relative;
-  transition:transform .25s,box-shadow .25s;
-  box-shadow:var(--shadow);
-}
-.sol-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:var(--radius-lg) var(--radius-lg) 0 0;
-  background:var(--accent);
-}
-.sol-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-strong);}
-.sol-icon{font-size:1.65rem;margin-bottom:.65rem;}
-.sol-tag{
-  font-family:'Sora',sans-serif;font-size:.58rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--accent);font-weight:600;
-  margin-bottom:.65rem;display:inline-block;
-}
-.sol-card p{font-size:.9rem;color:var(--muted);margin:0;line-height:1.65;}
-.solution-grid.partner-grid{grid-template-columns:1fr;grid-auto-rows:auto;}
-@media(min-width:720px){
-  .solution-grid.partner-grid{grid-template-columns:repeat(2,1fr);}
-}
-@media(min-width:800px){
-  .solution-grid.partner-grid{
-    grid-template-columns:repeat(2,1fr)!important;
-  }
-  .solution-grid.partner-grid .sol-card:nth-child(n){
-    grid-column:auto!important;grid-row:auto!important;min-height:0!important;
-  }
+.nav-contact:hover {
+  background: var(--green); color: var(--bg-pure);
+  box-shadow: 0 4px 15px rgba(37, 133, 90, 0.15);
 }
 
-/* How — timeline strip + sticky aside */
-.how-block{margin-top:2rem;}
-.how-grid{
-  display:grid;gap:2rem;align-items:start;
+/* ─── BUTTONS ─── */
+.btn-green {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; background: var(--green); color: var(--bg-pure);
+  padding: 12px 28px; font-size: 13px; font-weight: 600; /* Reduced padding & font size */
+  border-radius: 30px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none; cursor: pointer;
 }
-@media(min-width:960px){
-  .how-grid{
-    grid-template-columns:minmax(0,1fr) minmax(280px,340px);
-    gap:3rem;
-  }
-  .approach-box{position:sticky;top:1.5rem;}
+.btn-green:hover {
+  background: var(--green-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 133, 90, 0.2);
 }
-.steps-timeline{
-  position:relative;padding-left:1.75rem;border-left:3px solid var(--accent);
+.btn-outline-w {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; border: 1px solid rgba(30, 44, 39, 0.2); color: var(--dark);
+  padding: 12px 28px; font-size: 13px; font-weight: 600; /* Reduced padding & font size */
+  border-radius: 30px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent; cursor: pointer;
 }
-.step{
-  display:grid;grid-template-columns:auto 1fr;gap:1rem 1.25rem;
-  margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--line);
-  padding-left:.25rem;align-items:start;
-}
-.step:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0;}
-.step-num{
-  font-family:'Sora',sans-serif;font-weight:700;font-size:.72rem;color:var(--accent);
-  letter-spacing:.12em;display:block;
-}
-.step-body h3{margin-bottom:.35rem;}
-.step-body p{font-size:.92rem;color:var(--muted);margin:0;}
-
-.approach-box{
-  background:var(--accent-pale);color:var(--text);border-radius:var(--radius-lg);
-  padding:1.75rem;border:1px solid var(--line);
-  box-shadow:var(--shadow);
-}
-.approach-box h3{color:var(--accent);margin-bottom:1rem;font-size:.95rem;font-family:'Sora',sans-serif;font-weight:700;}
-.approach-item{display:flex;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--line);}
-.approach-item:last-child{border-bottom:none;}
-.approach-item p{font-size:.84rem;color:var(--muted);margin:0;}
-.approach-item strong{color:var(--text);}
-.a-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:.45rem;}
-
-.impact-band{
-  background:var(--surface-2);
-  padding:clamp(2.5rem,6vw,4rem) clamp(1rem,3vw,2rem);
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-}
-.impact-grid{
-  display:grid;gap:1.25rem;margin:0 auto;max-width:min(68rem,100%);
-  grid-template-columns:repeat(2,1fr);
-}
-@media(min-width:800px){
-  .impact-grid{grid-template-columns:repeat(4,1fr);}
-}
-.imp{
-  text-align:center;padding:1.35rem 1rem;background:var(--surface);
-  border-radius:var(--radius-lg);border:1px solid var(--line);
-  box-shadow:0 2px 16px rgba(47,109,94,.06);
-}
-.imp-num{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.85rem,3.5vw,2.75rem);color:var(--accent);line-height:1;margin-bottom:.35rem;}
-.imp-label{font-size:.68rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-family:'Sora',sans-serif;font-weight:600;line-height:1.35;}
-
-/* About */
-.about-hero{
-  padding:clamp(3.5rem,9vw,5.5rem) 0 clamp(2.5rem,6vw,3.5rem);
-  background:var(--surface);
-  border-bottom:1px solid var(--line);
-}
-.about-body{
-  background:var(--page);
-}
-.about-grid{
-  display:grid;gap:clamp(2rem,5vw,3.5rem);
-}
-@media(min-width:960px){
-  .about-grid{
-    grid-template-columns:1.4fr 1fr;
-    align-items:start;
-  }
-}
-.mission-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
-  padding:1.5rem 1.5rem 1.5rem 1.25rem;box-shadow:var(--shadow);
-  position:relative;
-}
-.mission-card::before{display:none;}
-.mission-card{border-left:4px solid var(--accent);}
-.mc-label{font-family:'Sora',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:.5rem;}
-.mc-text{font-size:1.02rem;color:var(--text);font-style:italic;line-height:1.65;}
-
-.value-list{margin-top:0;}
-.val{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);}
-.val:last-child{border-bottom:none;}
-.val-icon{font-size:1.25rem;}
-.val-text h3{font-size:.95rem;}
-.val-text p{font-size:.85rem;color:var(--muted);margin:0;}
-
-.team-intro{max-width:48rem;margin-bottom:1.5rem;}
-.team-grid{
-  display:grid;gap:1rem;
-  grid-template-columns:1fr;
-}
-@media(min-width:640px){.team-grid{grid-template-columns:repeat(2,1fr);}}
-@media(min-width:1100px){.team-grid{grid-template-columns:repeat(4,1fr);}}
-.team-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
-  padding:1.35rem;display:flex;flex-direction:column;align-items:flex-start;
-  text-align:left;box-shadow:var(--shadow);transition:transform .2s;
-}
-.team-card:hover{transform:translateY(-3px);}
-.tc-avatar{
-  width:52px;height:52px;border-radius:8px;margin:0 0 .85rem 0;
-  background:var(--accent-soft);color:var(--leaf);
-  font-family:'Sora',sans-serif;font-weight:800;font-size:1.1rem;
-  display:flex;align-items:center;justify-content:center;
-}
-.tc-name{font-family:'Sora',sans-serif;font-weight:700;}
-.tc-role{font-family:'Sora',sans-serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;font-weight:600;}
-
-/* Team page */
-.team-page-grid{
-  display:grid;gap:1.5rem;
-  grid-template-columns:1fr;
-}
-@media(min-width:640px){
-  .team-page-grid{grid-template-columns:repeat(2,1fr);}
-}
-@media(min-width:1100px){
-  .team-page-grid{
-    grid-template-columns:repeat(12,1fr);
-    align-items:stretch;
-    grid-auto-rows:1fr;
-  }
-  .team-page-grid .team-member-card:nth-child(1),
-  .team-page-grid .team-member-card:nth-child(2){
-    grid-column:span 4;
-  }
-  .team-page-grid .team-member-card:nth-child(1){
-    grid-column:3 / span 4;
-  }
-  .team-page-grid .team-member-card:nth-child(2){
-    grid-column:7 / span 4;
-  }
-  .team-page-grid .team-member-card:nth-child(3),
-  .team-page-grid .team-member-card:nth-child(4),
-  .team-page-grid .team-member-card:nth-child(5){
-    grid-column:span 4;
-  }
-}
-.team-member-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
-  overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;
-  transition:transform .2s,box-shadow .2s;
-  min-height:620px;
-}
-.team-member-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-strong);}
-.team-member-photo{
-  width:100%;height:250px;object-fit:cover;object-position:center center;display:block;
-  border-bottom:3px solid var(--accent);
-  background:var(--surface-2);
-}
-.team-member-meta{padding:1.35rem 1.4rem 1.5rem;}
-.team-member-label{
-  font-family:'Sora',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;
-}
-.team-member-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.75rem;}
-.team-tag{
-  font-family:'Sora',sans-serif;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;
-  padding:.22rem .55rem;border-radius:999px;background:var(--accent-pale);color:var(--accent);border:1px solid var(--line);font-weight:600;
-}
-.team-member-name{font-family:'Sora',sans-serif;font-size:1.08rem;font-weight:700;color:var(--text);margin:0 0 .6rem;}
-.team-member-bio{font-size:.88rem;color:var(--muted);line-height:1.65;margin:0 0 1rem;}
-.team-member-expertise{margin-top:auto;padding-top:1rem;border-top:1px dashed var(--line);}
-.team-expertise-title{
-  font-family:'Sora',sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.5rem;
-}
-.team-expertise-list{list-style:none;padding:0;margin:0;}
-.team-expertise-list li{
-  font-size:.82rem;color:var(--muted);padding:.28rem 0;padding-left:1rem;position:relative;
-}
-.team-expertise-list li::before{
-  content:'';position:absolute;left:0;top:.65em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7;
+.btn-outline-w:hover {
+  border-color: var(--dark); background: rgba(30, 44, 39, 0.04);
+  transform: translateY(-2px);
 }
 
-/* Tech */
-.tech-hero{
-  padding:clamp(3.5rem,9vw,5.5rem) 0 clamp(2rem,5vw,2.75rem);
-  background:var(--surface);
-  border-bottom:1px solid var(--line);
+/* ─── HERO SECTION ─── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 140px 24px 80px;
+  background: 
+    radial-gradient(circle at 50% 20%, rgba(209, 235, 217, 0.4) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(37, 133, 90, 0.04) 0%, transparent 40%),
+    var(--bg-light);
+  position: relative; overflow: hidden;
 }
-.pillar-list{display:flex;flex-direction:column;gap:1.25rem;margin-top:1.5rem;}
-.pillar{
-  display:grid;gap:1rem;padding:1.5rem 1.5rem 1.5rem 1.25rem;
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
-  box-shadow:var(--shadow);
-  position:relative;overflow:hidden;
-  grid-template-columns:1fr;
+#hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(37, 133, 90, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 133, 90, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px; pointer-events: none;
 }
-@media(min-width:700px){
-  .pillar{
-    grid-template-columns:auto 1fr auto;
-    align-items:start;padding:1.75rem 2rem;
-  }
+.hero-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; /* Reduced from 11px */
+  color: var(--green); margin-bottom: 20px;
+  background: rgba(37, 133, 90, 0.06); padding: 5px 12px; border-radius: 20px;
+  border: 1px solid rgba(37, 133, 90, 0.15);
 }
-.pillar-num{
-  font-family:'Sora',sans-serif;font-weight:800;font-size:3.5rem;line-height:1;
-  color:rgba(13,148,136,.12);position:absolute;right:.75rem;top:.5rem;pointer-events:none;
+.hero-h1 {
+  font-family: var(--font-head); font-size: clamp(2.2rem, 5.5vw, 4.2rem); /* Reduced from 2.8rem - 5.2rem */
+  font-weight: 700; line-height: 1.15; color: var(--dark);
+  max-width: 900px; margin: 0 auto 24px; letter-spacing: -.03em;
 }
-@media(min-width:700px){.pillar-num{position:static;color:rgba(13,148,136,.2);}}
-.pillar-kicker{font-family:'Sora',sans-serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;}
-.pillar-desc{font-size:.91rem;color:var(--muted);margin:0 0 .65rem;line-height:1.65;}
-.pillar-for{font-size:.76rem;color:var(--accent);font-family:'Sora',sans-serif;font-weight:600;line-height:1.45;}
-.pillar-tag{
-  font-family:'Sora',sans-serif;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
-  background:var(--accent-pale);border:1px solid var(--line);color:var(--accent);padding:.35rem .75rem;border-radius:999px;
-  justify-self:start;align-self:start;
+.hero-sub {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text-light); font-weight: 400; /* Downscaled */
+  max-width: 640px; margin: 0 auto 40px; line-height: 1.65;
+}
+.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+.hero-scroll {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--text-light); opacity: 0.7; /* Reduced from 10px */
+}
+.hero-scroll-line {
+  width: 2px; height: 40px; /* Shortened slightly */
+  background: linear-gradient(var(--green), transparent);
+  animation: scrollPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes scrollPulse { 0% { transform: scaleY(0); transform-origin: top; opacity: 0; } 50% { transform: scaleY(1); transform-origin: top; opacity: 1; } 100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; } }
+
+/* ─── STATS BAR ─── */
+.stats-bar {
+  background: var(--bg-pure);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stat {
+  padding: 48px 32px; text-align: center; /* Tighter padding */
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+.stat-n {
+  font-family: var(--font-head); font-size: clamp(2.2rem, 3.8vw, 3.2rem); /* Reduced from 2.6rem - 4rem */
+  font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.stat-l {
+  font-size: 12.5px; color: var(--text-light); letter-spacing: .01em; line-height: 1.5; /* Reduced from 13.5px */
+  max-width: 220px; margin: 0 auto; font-weight: 400;
 }
 
-.approach-section{
-  margin-top:2.5rem;padding:2rem;border-radius:var(--radius-lg);
-  background:var(--surface-2);border:1px dashed var(--line);
-}
-.approach-section h3{font-family:'Sora',sans-serif;color:var(--text);}
-.approach-2col{display:grid;gap:1rem;}
-@media(min-width:720px){.approach-2col{grid-template-columns:repeat(2,1fr);}}
-.ap-item{padding:1.1rem;background:var(--surface);border-radius:12px;border:1px solid var(--line);}
-.ap-item h4{font-family:'Sora',sans-serif;font-size:.86rem;}
-.ap-item p{font-size:.8rem;color:var(--muted);margin:0;}
+/* ─── LAYOUT STRUCTURES ─── */
+.section-dark { background: var(--bg-pure); padding: 100px 8%; } /* Adjusted section spacing */
+.section-mid { background: var(--bg-light); padding: 100px 8%; }
 
-/* Blog — 12-col magazine */
-.blog-hero{
-  padding:clamp(3.5rem,9vw,5rem) 0 clamp(2rem,5vw,2.5rem);
-  border-bottom:none;
+/* ─── FULL BLEED COVERS FOR THE INDUSTRIAL CONFLICT SECTION ─── */
+.section-conflict {
+  background: var(--bg-pure);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 620px;
+  padding: 0;
+  position: relative;
 }
-.series-label{
-  font-family:'Sora',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
-  background:var(--accent-pale);border:1px solid var(--line);color:var(--accent);
-  padding:.4rem .9rem;display:inline-block;margin-bottom:1.25rem;border-radius:999px;
+.conflict-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-.post-grid{
-  display:grid;gap:1rem;
-  grid-template-columns:1fr;
+.conflict-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-@media(min-width:900px){
-  #blog .post-grid{
-    grid-template-columns:repeat(12,1fr);
-    grid-auto-rows:auto;
-    gap:1.1rem;
-  }
-  #blog .post-grid > .post-card:nth-child(1){grid-column:span 7;}
-  #blog .post-grid > .post-card:nth-child(2){grid-column:span 5;}
-  #blog .post-grid > .post-card:nth-child(3){grid-column:span 5;}
-  #blog .post-grid > .post-card:nth-child(4){grid-column:span 7;}
-  #blog .post-grid > .post-card:nth-child(5){grid-column:span 6;}
-  #blog .post-grid > .post-card:nth-child(6){grid-column:span 6;}
-  #blog .post-grid > .post-card:nth-child(7){grid-column:span 12;}
+.conflict-img-wrapper:hover img {
+  transform: scale(1.04);
 }
-.post-card{
-  border-radius:var(--radius-lg);padding:1.5rem;
-  border:1px solid var(--line);background:var(--surface);
-  box-shadow:var(--shadow);
-}
-.post-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-strong);}
-.ptag{
-  font-family:'Sora',sans-serif;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
-  background:var(--accent-pale);color:var(--accent);border:1px solid var(--line);border-radius:999px;
-  padding:.18rem .5rem;margin-right:.3rem;margin-bottom:.25rem;display:inline-block;
-}
-.post-title{font-family:'Sora',sans-serif;font-weight:700;font-size:.98rem;}
-.post-hook{font-size:.86rem;}
-.post-outline{border-top:1px dashed var(--line);}
-.post-outline-label{color:var(--accent);}
-
-/* Keep Insights section text format consistent */
-#blog .blog-intro{
-  margin-bottom:0 !important;
-  font-size:1rem;
-  line-height:1.75;
-  color:var(--muted);
-}
-#blog .post-card{
-  text-align:left;
-}
-#blog .post-num{
-  font-family:'Sora',sans-serif;
-  font-size:.64rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:.7rem;
-}
-#blog .post-title{
-  font-family:'Sora',sans-serif;
-  font-size:1.02rem;
-  font-weight:700;
-  line-height:1.42;
-  margin-bottom:.6rem;
-}
-#blog .post-hook{
-  font-size:.9rem;
-  line-height:1.68;
-  color:var(--muted);
-}
-#blog .post-outline{
-  margin-top:1rem;
-  padding-top:.95rem;
-}
-#blog .post-outline-label{
-  font-size:.62rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  font-weight:700;
-}
-#blog .post-outline ul{
-  margin:0;
-  padding-left:1rem;
-}
-#blog .post-outline li{
-  font-size:.84rem;
-  line-height:1.6;
-  color:var(--muted);
-}
-#blog .ptag--accent{
-  background:var(--accent-pale) !important;
-  color:var(--accent) !important;
-  border-color:var(--line) !important;
+.conflict-text-side {
+  padding: 80px 8% 80px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.team-header{display:flex;align-items:center;gap:.9rem;}
-.team-img{border-radius:8px;}
-.team-name{font-family:'Sora',sans-serif;}
-.team-role{font-family:'Sora',sans-serif;color:var(--accent);font-weight:600;}
+.section-header-center {
+  text-align: center; max-width: 720px; margin: 0 auto 60px;
+}
+.eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .22em; /* Reduced from 11px */
+  text-transform: uppercase; color: var(--green); display: block; margin-bottom: 16px;
+}
+.h2-dark {
+  font-family: var(--font-head); font-size: clamp(1.8rem, 3.2vw, 2.8rem); /* Reduced from 2.2rem - 3.4rem */
+  font-weight: 700; color: var(--dark); line-height: 1.25; letter-spacing: -.02em;
+}
+.lead-dark { font-size: 0.95rem; color: var(--text-light); font-weight: 400; margin-top: 16px; line-height: 1.7; } /* Reduced from 1.1rem */
 
-.cta-band{
-  background:linear-gradient(135deg, #e6f0ec 0%, #d9ece5 100%);
-  padding:clamp(2.75rem,8vw,4.5rem) clamp(1.25rem,4vw,2rem);
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+.section-divider {
+  width: 48px; height: 2px; background: var(--green); margin: 24px 0; /* Scaled down rule */
 }
-.cta-split{
-  max-width:38rem;margin:0 auto;text-align:center;
-}
-@media(min-width:768px){
-  .cta-split{max-width:48rem;}
-}
-.cta-copy{padding:0 0 1.25rem;}
-.cta-copy .section-label{border-bottom-color:var(--accent);display:inline-block;}
-.cta-copy h2{color:var(--text);margin-bottom:.85rem;}
-.cta-copy h2 em{color:var(--accent);font-style:normal;}
-.cta-copy p{color:var(--muted);margin-bottom:0;}
-.cta-actions-panel{padding:1.25rem 0 0;display:flex;justify-content:center;}
-.cta-band .btn-primary{background:var(--accent);color:#fff;}
-.cta-band .btn-outline{border-color:var(--accent);color:var(--accent);background:var(--surface);}
-.cta-contacts{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:.75rem;width:100%;max-width:none;}
 
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-.hero-manifesto .hero-inner > *{animation:fadeIn .7s ease both;}
-.hero-pipeline{animation:fadeIn .7s .15s ease both;}
+/* ─── CHALLENGES & SOLUTIONS GRID ─── */
+.challenges-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px;
+}
+.challenge-card {
+  background: var(--bg-pure); padding: 24px; border-radius: 10px; /* Reduced padding */
+  border: 1px solid var(--border); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+}
+.challenge-card:hover {
+  border-color: var(--green);
+  transform: translateY(-4px); background: var(--bg-light);
+  box-shadow: 0 12px 30px rgba(37, 133, 90, 0.05);
+}
+.challenge-icon {
+  width: 40px; height: 40px; margin-bottom: 16px; /* Scaled down icon containers */
+  background: rgba(37, 133, 90, 0.08); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; color: var(--green);
+}
+.challenge-title { font-size: 0.98rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; } /* Reduced from 1.1rem */
+.challenge-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; font-weight: 400; } /* Reduced from 0.92rem */
 
-.contact-footer-wrap{
-  border-top:1px solid var(--line);
-  background:linear-gradient(180deg,var(--surface) 0%, var(--page) 55%, var(--accent-pale) 100%);
+/* ─── ARCHITECTURAL CONVERSION ENGINE DESIGN ─── */
+.engine-container {
+  background: var(--bg-pure); border: 1px solid var(--border); border-radius: 16px;
+  padding: 48px 32px; max-width: 1000px; margin: 0 auto 64px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(37, 133, 90, 0.03);
 }
-.contact-us-panel{
-  max-width:min(68rem,calc(100vw - 2.5rem));
-  margin:0 auto;
-  padding:clamp(2.25rem,6vw,3.5rem) clamp(1rem,4vw,2.5rem) 1.25rem;
+.engine-container::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--mint), var(--green));
 }
-.contact-us-box{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow);
-  padding:clamp(1.25rem,3vw,2rem);
-  text-align:center;
+.engine-grid {
+  display: grid; grid-template-columns: 1fr 50px 1.2fr 50px 1fr; align-items: center; gap: 12px;
 }
-.contact-us-head h2{margin-bottom:.4rem;}
-.contact-us-head p{color:var(--muted);margin-bottom:1.15rem;}
-.contact-grid{
-  display:grid;gap:.85rem;
-  grid-template-columns:1fr;
-  max-width:42rem;
-  margin:0 auto;
+.engine-col-title {
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase; /* Reduced from 11px */
+  color: var(--green); margin-bottom: 16px; font-weight: 700; text-align: center;
 }
-.contact-card{
-  background:transparent;
-  border:none;
-  border-radius:0;
-  padding:.25rem 0;
+.engine-stream-group { display: flex; flex-direction: column; gap: 12px; }
+.engine-stream-card {
+  background: var(--bg-light); border: 1px solid rgba(37, 133, 90, 0.1);
+  border-radius: 10px; padding: 18px; transition: all 0.3s ease;
 }
-.contact-card-label{
-  font-family:'Sora',sans-serif;font-size:.62rem;font-weight:700;
-  letter-spacing:.11em;text-transform:uppercase;color:var(--accent);margin-bottom:.25rem;
-}
-.contact-card p{margin:0;font-size:1rem;line-height:1.62;}
-.contact-link{
-  color:var(--accent);text-decoration:none;font-weight:600;
-}
-.contact-link:hover{text-decoration:underline;}
+.engine-stream-card:hover { border-color: var(--green); background: var(--bg-pure); }
+.engine-stream-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; } /* Reduced from 0.95rem */
+.engine-stream-card p { font-size: 0.8rem; color: var(--text-light); font-weight: 400; } /* Reduced from 0.85rem */
 
-/* Partner logo strip */
-.trust-strip{
-  max-width:min(68rem,calc(100vw - 2.5rem));
-  margin:-1.2rem auto 1.5rem;
-  padding:0 clamp(1rem,4vw,2.5rem);
+.engine-core-panel {
+  background: linear-gradient(135deg, var(--bg-tint), var(--bg-pure));
+  border: 1px solid rgba(37, 133, 90, 0.3); border-radius: 12px; padding: 32px 20px;
+  text-align: center; box-shadow: 0 12px 35px rgba(37, 133, 90, 0.06);
 }
-.trust-box{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:16px;
-  box-shadow:var(--shadow);
-  padding:1rem 1.1rem;
+.engine-core-panel h4 { font-size: 1rem; font-weight: 700; color: var(--green); margin-bottom: 12px; letter-spacing: 0.01em;} /* Reduced from 1.1rem */
+.engine-core-panel p { font-size: 0.84rem; color: var(--dark); line-height: 1.6; font-weight: 400; } /* Reduced from 0.9rem */
+
+.engine-arrow {
+  display: flex; justify-content: center; align-items: center; color: var(--green);
 }
-.trust-label{
-  font-family:'Sora',sans-serif;
-  font-size:.62rem;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--accent);
-  text-align:center;
-  margin-bottom:.75rem;
-  font-weight:700;
+.engine-arrow svg { width: 24px; height: 24px; } /* Slightly smaller arrows */
+
+/* ─── FEATURES COLUMNS ─── */
+.features-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto;
 }
-.logo-row{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:.6rem;
+.feature-card {
+  background: rgba(37, 133, 90, 0.02); padding: 32px 20px; border-radius: 10px;
+  border: 1px solid transparent; transition: all 0.3s ease;
 }
-@media(min-width:720px){
-  .logo-row{grid-template-columns:repeat(5,1fr);}
+.feature-card:hover { background: var(--bg-pure); border-color: var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+.feature-icon-circle {
+  width: 52px; height: 52px; margin: 0 auto 20px; /* Reduced from 64px */
+  background: var(--bg-pure); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green); border: 1px solid var(--border);
+  box-shadow: 0 4px 15px rgba(37, 133, 90, 0.05);
 }
-.logo-chip{
-  display:flex;align-items:center;justify-content:center;gap:.45rem;
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:.5rem .65rem;
-  background:var(--accent-pale);
-  font-family:'Sora',sans-serif;
-  font-size:.67rem;
-  color:var(--muted);
-  font-weight:600;
+.feature-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; text-align: center; } /* Reduced from 1.15rem */
+.feature-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; font-weight: 400; text-align: center; } /* Reduced from 0.9rem */
+
+/* ─── SPLIT SECTION DESIGN (IMPACT) ─── */
+.split {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;
+  max-width: 1200px; margin: 0 auto;
 }
-.logo-dot{
-  width:9px;height:9px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px rgba(47,109,94,.14);
+.split.reverse { grid-template-columns: 0.9fr 1.1fr; }
+.split.reverse .split-img-wrapper { grid-column: 2; grid-row: 1; }
+.split.reverse .split-text { grid-column: 1; grid-row: 1; }
+
+.split-img-wrapper {
+  position: relative; border-radius: 12px;
+  box-shadow: 0 30px 70px rgba(30, 44, 39, 0.08);
 }
-.site-footer{
-  width:100%;
-  max-width:none;
-  margin:0;
-  padding:1.85rem clamp(1rem,4vw,2.5rem) clamp(2.25rem,5vw,3rem);
-  background:linear-gradient(135deg,#05281f 0%, #06352c 45%, #053127 100%);
-  color:rgba(209,250,229,.92);
-  border-top:1px solid rgba(209,250,229,.18);
-  border-radius:0;
-  box-shadow:none;
+.split-img-wrapper::after {
+  content: ''; position: absolute; inset: 0; border-radius: 12px;
+  border: 1px solid rgba(37, 133, 90, 0.1); pointer-events: none;
 }
-.footer-main{
-  display:grid;gap:1rem 1.25rem;
-  grid-template-columns:1fr;
+.split-img {
+  border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: block;
 }
-@media(min-width:760px){
-  .footer-main{grid-template-columns:1.3fr .9fr .9fr .9fr;}
+.split-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.footer-col{padding:0;}
-.footer-brand{display:flex;align-items:center;gap:.75rem;margin-bottom:.6rem;}
-.footer-logo-img{width:60px;height:60px;object-fit:contain;display:block;}
-.footer-logo{font-family:'Sora',sans-serif;font-weight:800;color:rgba(209,250,229,.95);font-size:1rem;margin:0;}
-.footer-note{font-size:.84rem;color:rgba(209,250,229,.78);line-height:1.6;margin:0;}
-.footer-title{
-  font-family:'Sora',sans-serif;font-size:.68rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:rgba(209,250,229,.9);margin:0 0 .55rem;
+.split-img-wrapper:hover img { transform: scale(1.05); }
+
+/* ─── CINE-FULLBLEED HERO IMAGES ─── */
+.fullbleed {
+  position: relative; height: 480px; overflow: hidden; display: flex; align-items: center; /* Slightly shorter height */
 }
-.footer-links{list-style:none;padding:0;margin:0;}
-.footer-links li{margin:.38rem 0;}
-.footer-links a{
-  color:rgba(209,250,229,.78);text-decoration:none;font-size:.84rem;
+.fullbleed img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.45) saturate(0.7); transform: scale(1.02);
 }
-.footer-links a:hover{color:rgba(209,250,229,.98);}
-.footer-bottom{
-  margin-top:1rem;padding-top:1rem;border-top:1px dashed rgba(209,250,229,.18);
-  display:flex;flex-wrap:wrap;justify-content:space-between;gap:.65rem;
+.fullbleed-content {
+  position: relative; z-index: 10; padding: 0 8%; max-width: 720px;
 }
-.footer-bottom p{margin:0;font-size:.75rem;color:rgba(209,250,229,.78);}
+.fullbleed .h2-dark { color: #ffffff; }
+.fullbleed .lead-dark { color: #e5ece9; }
+
+/* ─── INTUITIVE PILL LABELS IMPACT ─── */
+.impact-row-group { display: flex; flex-direction: column; gap: 24px; margin-top: 36px; }
+.impact-row { display: flex; gap: 20px; align-items: flex-start; }
+.impact-num {
+  font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; color: var(--green); /* Reduced from 2rem */
+  line-height: 1; padding: 8px 14px; background: var(--bg-pure);
+  border-radius: 10px; border: 1px solid var(--border); min-width: 76px; text-align: center;
+  box-shadow: 0 4px 15px rgba(37, 133, 90, 0.04);
+}
+.impact-text h4 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; } /* Reduced from 1.1rem */
+.impact-text p { font-size: 0.88rem; color: var(--text-light); font-weight: 400; line-height: 1.6; } /* Reduced from 0.95rem */
+
+/* ─── PARTNERS & SCOPE ─── */
+.who-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto;
+}
+.who-card {
+  background: var(--bg-light); padding: 36px; border-radius: 12px; /* Reduced padding */
+  border: 1px solid var(--border); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.who-card:hover { transform: translateY(-4px); background: var(--bg-pure); box-shadow: 0 15px 40px rgba(37, 133, 90, 0.06); }
+.who-pill {
+  font-size: 9px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; /* Downscaled */
+  color: var(--green); background: rgba(37, 133, 90, 0.08); padding: 3px 10px;
+  border-radius: 10px; display: inline-block; margin-bottom: 16px;
+}
+.who-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; } /* Reduced from 1.25rem */
+.who-card .desc { font-size: 0.88rem; color: var(--text-light); font-weight: 400; margin-bottom: 20px; line-height: 1.6; } /* Reduced from 0.95rem */
+.who-card .foot { font-size: 0.78rem; color: var(--green); font-weight: 700; letter-spacing: 0.01em; } /* Downscaled */
+
+/* ─── EXPERT TEAM PROFILES ─── */
+.team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto;
+}
+.team-card {
+  background: var(--bg-pure); border-radius: 12px; padding: 32px 20px;
+  border: 1px solid var(--border); text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+}
+.team-avatar-container {
+  position: relative; width: 120px; height: 120px; margin: 0 auto 20px; /* Reduced avatar scale */
+}
+.team-avatar {
+  width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--bg-light);
+  transition: all 0.4s ease; display: block;
+}
+.team-card:hover .team-avatar { transform: scale(1.03); border-color: var(--green); }
+.team-role {
+  font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; /* Reduced from 10px */
+  color: var(--green); margin-bottom: 6px; display: block;
+}
+.team-name { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; } /* Reduced from 1.15rem */
+.team-qual { font-size: 0.82rem; color: var(--text-light); font-weight: 400; margin-bottom: 16px; } /* Reduced from 0.88rem */
+.team-tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+.tag {
+  font-size: 0.72rem; padding: 3px 10px; background: var(--bg-light); /* Smaller tag typography */
+  color: var(--text); border-radius: 20px; border: 1px solid var(--border);
+}
+
+/* ─── INSIGHTS CARDS ─── */
+.insights-header-block {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 32px; margin-bottom: 48px; max-width: 1100px; margin-left: auto; margin-right: auto;
+}
+.insights-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto;
+}
+.insight-card {
+  background: var(--bg-pure); border-radius: 10px; padding: 28px 24px; /* Reduced card padding */
+  border: 1px solid var(--border); display: flex; flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.insight-card:hover { border-color: var(--green); transform: translateY(-6px); box-shadow: 0 15px 40px rgba(37, 133, 90, 0.05); }
+.insight-tags { display: flex; gap: 6px; margin-bottom: 16px; }
+.ins-tag {
+  font-size: 8.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--green);
+  background: rgba(37, 133, 90, 0.06); padding: 3px 8px; border-radius: 4px; font-weight: 700;
+}
+.insight-title { font-size: 1rem; font-weight: 700; color: var(--dark); line-height: 1.35; margin-bottom: 10px; } /* Reduced from 1.1rem */
+.insight-desc { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; font-weight: 400; margin-bottom: 20px; } /* Reduced from 0.9rem */
+.insight-link {
+  margin-top: auto; display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; font-weight: 700; color: var(--green); text-decoration: none;
+}
+.insight-link::after { content: '→'; transition: transform 0.2s ease; }
+.insight-link:hover::after { transform: translateX(5px); }
+
+/* ─── CTA BRANDING BAND ─── */
+.cta-band {
+  background: radial-gradient(circle at 80% 80%, rgba(209, 235, 217, 0.3) 0%, transparent 60%), var(--bg-light);
+  padding: 100px 4px; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.cta-band h2 { margin: 0 auto 20px; max-width: 720px; }
+.cta-band p { margin: 0 auto 36px; max-width: 540px; }
+
+/* ─── MODERN CORE CONTACT FORMS ─── */
+.contact-wrap {
+  display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; max-width: 1100px; margin: 0 auto; /* Reduced columns gap */
+}
+.contact-detail-list { margin-top: 36px; display: flex; flex-direction: column; gap: 28px; }
+.c-item { display: flex; flex-direction: column; gap: 6px; }
+.c-label { font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--green); } /* Reduced from 10px */
+.c-val font-size: 0.88rem; color: var(--text); text-decoration: none; line-height: 1.5; font-weight: 500; } /* Reduced from 0.95rem */
+a.c-val { transition: color 0.2s ease; }
+a.c-val:hover { color: var(--green); }
+
+.contact-form {
+  background: var(--bg-light); padding: 36px; border-radius: 12px; /* Tighter container layout */
+  border: 1px solid var(--border); display: flex; flex-direction: column; gap: 16px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.f-group { display: flex; flex-direction: column; gap: 6px; }
+.f-label { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-light); } /* Reduced from 11px */
+.f-input, .f-select, .f-textarea {
+  background: var(--bg-pure); border: 1px solid var(--border); color: var(--dark);
+  padding: 12px 14px; font-family: var(--font-body); font-size: 0.88rem; border-radius: 6px; /* Reduced size and padding */
+  outline: none; transition: all 0.3s ease; width: 100%;
+}
+.f-input:focus, .f-select:focus, .f-textarea:focus { border-color: var(--green); box-shadow: 0 0 10px rgba(37, 133, 90, 0.05); }
+.f-input::placeholder, .f-textarea::placeholder { color: #a0b2aa; }
+.f-select option { background: var(--bg-pure); }
+.f-textarea { resize: vertical; min-height: 120px; }
+
+/* ─── FOOTER METRIC SYSTEMS ─── */
+footer { background: #131c19; padding: 64px 8% 32px; color: #cbdcd5; }
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 48px; padding-bottom: 48px; /* Tighter footer grids */
+}
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.footer-logo img { height: 32px; border-radius: 5px; }
+.footer-logo span { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #ffffff; }
+.footer-desc { font-size: 0.82rem; color: #a4bba3; line-height: 1.6; max-width: 260px; font-weight: 400; } /* Reduced from 0.88rem */
+.footer-col-h { font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #48bb78; margin-bottom: 20px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { text-decoration: none; font-size: 0.82rem; color: #cbdcd5; transition: color 0.2s ease; } /* Downscaled */
+.footer-links a:hover { color: #48bb78; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-bottom p { font-size: 0.8rem; color: #8fa39a; }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 0.8rem; color: #8fa39a; text-decoration: none; transition: color 0.2s ease; }
+.footer-legal a:hover { color: #cbdcd5; }
+
+/* ─── INTERSECTION REVEAL SYSTEMS ─── */
+.reveal {
+  opacity: 0; transform: translateY(20px); /* Down scaled movement */
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+
+/* ─── RESPONSIVE RECONFIGURATIONS ─── */
+@media(max-width: 1100px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .section-dark, .section-mid { padding: 80px 4px; }
+  .section-conflict { grid-template-columns: 1fr; min-height: auto; }
+  .conflict-img-wrapper { height: 360px; }
+  .conflict-text-side { padding: 60px 4%; }
+  .split { grid-template-columns: 1fr !important; gap: 40px; }
+  .split.reverse .split-img-wrapper { grid-column: auto; grid-row: auto; }
+  .split.reverse .split-text { grid-column: auto; grid-row: auto; }
+  .engine-grid { grid-template-columns: 1fr; gap: 20px; }
+  .engine-arrow { transform: rotate(90deg); padding: 8px 0; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .insights-grid { grid-template-columns: repeat(2, 1fr); }
+  .insights-header-block { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+  .footer-top { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+}
+
+@media(max-width: 680px) {
+  .stats-bar { grid-template-columns: 1fr; }
+  .challenges-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .insights-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .fullbleed { height: 380px; }
+  .contact-form { padding: 24px 16px; }
+}
 </style>
 </head>
 <body>
 
-<div class="app">
-<header class="site-header">
-  <div class="brand"><img src="images/verdialogo.jpeg" alt="Verdia logo" class="brand-logo">VERIDIA <span class="brand-accent">ENERGY</span></div>
-  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
-  <nav class="site-nav" id="navLinks">
-    <div class="nav-link active" onclick="show('home',this);closeNav()">Home</div>
-    <div class="nav-link" onclick="show('about',this);closeNav()">About</div>
-    <div class="nav-link" onclick="show('tech',this);closeNav()">Solutions</div>
-    <div class="nav-link" onclick="show('blog',this);closeNav()">Insights</div>
-    <div class="nav-link" onclick="show('team',this);closeNav()">Our Team</div>
-    <div class="nav-link" onclick="show('contact',this);closeNav()">Contact Us</div>
-  </nav>
-</header>
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="https://nitu-das305.github.io/veridia-energy-lab/images/verdialogo.jpeg" alt="Veridia Logo"/>
+    <span class="nav-logo-text">Veridia Energy</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#insights">Insights</a></li>
+  </ul>
+  <a href="#contact" class="nav-contact">Contact Us</a>
+</nav>
 
-<!-- ════════════════════════════ HOME ════════════════════════════ -->
-<section id="home" class="active">
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-manifesto">
-      <div class="hero-inner">
-        <div class="hero-kicker">Veridia Energy · Navi Mumbai, India</div>
-        <h1>Turning <em>Waste Carbon</em><br/>Into the Fuels &amp;<br/>Materials of Tomorrow</h1>
-        <p class="hero-sub">We take what industry throws away — CO₂ emissions and agricultural biomass — and convert them into sustainable aviation fuel, bio-based chemicals, and advanced materials. No new resources. No compromises.</p>
-        <div class="hero-actions">
-          <div class="btn-primary" onclick="show('tech',document.querySelectorAll('.nav-link')[2])">See Our Solutions</div>
-          <div class="btn-outline" onclick="show('about',document.querySelectorAll('.nav-link')[1])">Our Story</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-pipeline">
-      <div class="hero-pipeline-label">What We Convert</div>
-      <div class="pipeline-stage">Inputs</div>
-      <div class="pipeline-row pipeline-row--in">
-        <div class="flow-item"><div class="flow-icon fi-amber">🌾</div><div><div class="flow-label">Waste Biomass</div><div class="flow-sub">Agricultural residue · Forestry waste</div></div></div>
-        <div class="flow-item"><div class="flow-icon fi-blue">💨</div><div><div class="flow-label">Captured CO₂</div><div class="flow-sub">Industrial emissions · Flue gas</div></div></div>
-      </div>
-      <div class="flow-arrow">↓</div>
-      <div class="engine-core">
-        <div class="engine-title">Veridia's Conversion Engine</div>
-        <p class="engine-sub">Molecular simulation + AI-driven process design + techno-economic validation</p>
-      </div>
-      <div class="pipeline-stage">Outputs</div>
-      <div class="pipeline-row pipeline-row--out">
-        <div class="flow-item"><div class="flow-icon fi-green">✈️</div><div><div class="flow-label">Sustainable Aviation Fuel</div><div class="flow-sub">Drop-in · ASTM-compliant · Net-zero</div></div></div>
-        <div class="flow-item"><div class="flow-icon fi-green">🧪</div><div><div class="flow-label">Bio-based Chemicals</div><div class="flow-sub">Platform chemicals · Polymer precursors</div></div></div>
-        <div class="flow-item"><div class="flow-icon fi-green">🏗️</div><div><div class="flow-label">Advanced Materials</div><div class="flow-sub">Bio-composites · Functionalised carbons</div></div></div>
-      </div>
-    </div>
+<section id="hero">
+  <span class="hero-label reveal">Guwahati Assam, India · Deep-Tech Decarbonisation</span>
+  <h1 class="hero-h1 reveal reveal-delay-1">
+    Turning <em class="accent-text">Waste Carbon</em> Into<br/>the Fuels of Tomorrow
+  </h1>
+  <p class="hero-sub reveal reveal-delay-2">
+    We transform industrial CO₂ emissions and residual agricultural biomass into standard sustainable aviation fuel, bio-based chemical streams, and premium structural composite materials.
+  </p>
+  <div class="hero-btns reveal reveal-delay-3">
+    <a href="#solutions" class="btn-green">See Our Solutions</a>
+    <a href="#technology" class="btn-outline-w">Our Technology</a>
   </div>
-
-  <div class="trust-strip">
-    <div class="trust-box">
-      <div class="trust-label">Trusted Ecosystem & Potential Collaborators</div>
-      <div class="logo-row">
-        <div class="logo-chip"><span class="logo-dot"></span>GreenAir</div>
-        <div class="logo-chip"><span class="logo-dot"></span>EcoRefine</div>
-        <div class="logo-chip"><span class="logo-dot"></span>CarbonLoop</div>
-        <div class="logo-chip"><span class="logo-dot"></span>BioNexus</div>
-        <div class="logo-chip"><span class="logo-dot"></span>FutureFuel</div>
-      </div>
-    </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll Exploration</span>
   </div>
-
-  <!-- PROBLEM BAND -->
-  <div class="problem-band">
-    <div class="inner">
-      <div class="problem-copy">
-        <div class="section-label">The Problem We're Solving</div>
-        <h2>Fossil Fuels Still Power <em>Everything</em>.<br/>That Has to Change.</h2>
-        <p class="lead">Electricity can be decarbonised with solar and wind. But aviation, chemicals, and heavy industry cannot run on batteries. These sectors need a direct molecular replacement for fossil carbon — and that is exactly what Veridia provides.</p>
-      </div>
-      <div class="problem-stat-row">
-        <div class="pstat">
-          <div class="pstat-num">~8%</div>
-          <div class="pstat-label">of global CO₂ emissions come from aviation and the chemicals sector combined — sectors with no viable electric alternative</div>
-        </div>
-        <div class="pstat">
-          <div class="pstat-num">1 Billion+</div>
-          <div class="pstat-label">tonnes of lignocellulosic biomass go unused or are burned every year — a wasted carbon-rich resource</div>
-        </div>
-        <div class="pstat">
-          <div class="pstat-num">Net-Zero<br/>2050</div>
-          <div class="pstat-label">global targets require scalable, drop-in solutions for fossil-derived fuels and chemicals — starting now</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHAT WE DO -->
-  <div class="section-wrap">
-    <div class="solution-intro">
-      <div class="section-label">Our Solutions</div>
-      <h2>We Build the <em>Bridge</em> from<br/>Waste to Value</h2>
-      <p class="lead">Three core products. One unified mission: replace fossil carbon with something better, cheaper, and cleaner.</p>
-    </div>
-    <div class="solution-grid">
-      <div class="sol-card">
-        <div class="sol-icon">✈️</div>
-        <div class="sol-tag">Sustainable Aviation Fuel</div>
-        <h3>CO₂ to SAF</h3>
-        <p>We convert captured industrial CO₂ into ASTM-compliant Sustainable Aviation Fuel — a direct, drop-in replacement for jet fuel that can be used in existing aircraft without a single engine modification.</p>
-      </div>
-      <div class="sol-card">
-        <div class="sol-icon">🧪</div>
-        <div class="sol-tag">Biorefinery</div>
-        <h3>Biomass to Chemicals</h3>
-        <p>We fractionate agricultural and forestry waste into high-value bio-based chemicals and polymer precursors — replacing petroleum-derived raw materials across the specialty chemicals industry.</p>
-      </div>
-      <div class="sol-card">
-        <div class="sol-icon">🏗️</div>
-        <div class="sol-tag">Advanced Materials</div>
-        <h3>Biomass to Materials</h3>
-        <p>We develop bio-composites and functionalised carbon materials from lignin and cellulose streams — delivering performance-equivalent, sustainable alternatives for packaging, construction, and electronics.</p>
-      </div>
-      <div class="sol-card">
-        <div class="sol-icon">🔄</div>
-        <div class="sol-tag">Carbon Capture</div>
-        <h3>Capture & Utilise</h3>
-        <p>We don't just capture CO₂ — we feed it directly into our SAF and chemicals pathways, turning a liability on your balance sheet into a revenue-generating input. Full-loop carbon utilisation within a single site.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- HOW IT WORKS -->
-  <div class="section-wrap how-block">
-    <div class="section-label">How We Do It</div>
-    <h2>Our Approach: <em>Smarter</em> by Design</h2>
-    <p class="lead">We don't trial and error our way to answers. We design solutions at the molecular level, then validate them — making our development faster, leaner, and more reliable than traditional R&D.</p>
-    <div class="how-grid">
-      <div class="steps-timeline">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-body">
-            <h3>Design at the Molecular Level</h3>
-            <p>Before running a single experiment, we model the chemistry digitally — screening thousands of possible reaction pathways, catalysts, and conditions to identify the best candidates.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-body">
-            <h3>Accelerate with AI & Data</h3>
-            <p>Our AI and machine learning models learn from every simulation and experiment, continuously improving predictions and cutting the time from concept to validated process.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-body">
-            <h3>Validate & Scale</h3>
-            <p>Only the most promising pathways proceed to experimental validation — meaning resources are spent where they matter most, and scale-up risks are dramatically reduced.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <div class="step-body">
-            <h3>Prove the Economics</h3>
-            <p>Every solution is stress-tested against real-world cost and market conditions from day one. We build for commercial viability — not just scientific elegance.</p>
-          </div>
-        </div>
-      </div>
-      <aside class="approach-box">
-        <h3>🔬 The Technology Behind It</h3>
-        <div class="approach-item"><div class="a-dot"></div><p><strong>Molecular simulation</strong> — we model chemistry at the atomic scale to understand exactly why reactions work, before scaling them up</p></div>
-        <div class="approach-item"><div class="a-dot"></div><p><strong>AI-powered screening</strong> — machine learning evaluates millions of candidates to find optimal catalysts, solvents, and conditions in a fraction of the time</p></div>
-        <div class="approach-item"><div class="a-dot"></div><p><strong>Process integration</strong> — our solutions are designed to slot into existing industrial infrastructure, minimising capital expenditure for partners</p></div>
-        <div class="approach-item"><div class="a-dot"></div><p><strong>Techno-economic analysis</strong> — cost modelling runs in parallel with R&D so every decision is commercially grounded from the start</p></div>
-        <div class="approach-item"><div class="a-dot"></div><p><strong>Open science backbone</strong> — our peer-reviewed publications and open-source tools build trust and credibility with industrial and academic partners</p></div>
-      </aside>
-    </div>
-  </div>
-
-  <!-- IMPACT NUMBERS -->
-  <div class="impact-band">
-    <div class="impact-grid">
-      <div class="imp"><div class="imp-num">3</div><div class="imp-label">Core Product Streams</div></div>
-      <div class="imp"><div class="imp-num">6+</div><div class="imp-label">Technology Pillars</div></div>
-      <div class="imp"><div class="imp-num">10×</div><div class="imp-label">Faster Development vs. Traditional R&D</div></div>
-      <div class="imp"><div class="imp-num">Zero</div><div class="imp-label">New Fossil Inputs Required</div></div>
-    </div>
-  </div>
-
-  <!-- WHO WE WORK WITH -->
-  <div class="section-wrap">
-    <div class="section-label">Who We Work With</div>
-    <h2>Built for <em>Partners</em> Who Move Fast</h2>
-    <div class="solution-grid partner-grid">
-      <div class="sol-card">
-        <div class="sol-icon">🏭</div>
-        <h3>Industry & Corporates</h3>
-        <p>Airlines, refineries, chemical manufacturers, and agricultural processors seeking a credible, scalable route to net-zero with no operational compromise.</p>
-        <p style="font-size:.8rem;color:var(--leaf);margin-top:.5rem;">→ Technology licensing · Co-development · Process consulting</p>
-      </div>
-      <div class="sol-card">
-        <div class="sol-icon">🏛️</div>
-        <h3>Government & Policy Bodies</h3>
-        <p>Agencies designing SAF mandates, carbon credit frameworks, and bioeconomy strategies who need rigorous science and implementable technology roadmaps.</p>
-        <p style="font-size:.8rem;color:var(--leaf);margin-top:.5rem;">→ Policy advisory · Technology demonstration · TEA reports</p>
-      </div>
-      <div class="sol-card">
-        <div class="sol-icon">🔬</div>
-        <h3>Research Institutions</h3>
-        <p>National labs and academic groups seeking industry partners for co-development, joint grants, and translation of fundamental science into deployable processes.</p>
-        <p style="font-size:.8rem;color:var(--leaf);margin-top:.5rem;">→ Joint R&D · Co-authorship · HPC collaborations</p>
-      </div>
-      <div class="sol-card">
-        <div class="sol-icon">📈</div>
-        <h3>Investors & VCs</h3>
-        <p>Climate-tech investors looking for asset-light, IP-rich deep-tech companies with near-term licensing revenue paths and defensible technological moats.</p>
-        <p style="font-size:.8rem;color:var(--leaf);margin-top:.5rem;">→ Seed &amp; Series A · Strategic partnerships · Grant co-funding</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-band">
-    <div class="cta-split">
-      <div class="cta-copy">
-        <div class="section-label">Get in Touch</div>
-        <h2>Ready to Build the <em>Post-Carbon</em> Economy Together?</h2>
-        <p>Whether you're an industrial partner, investor, or research collaborator — if you're serious about decarbonisation, we want to talk.</p>
-      </div>
-      <div class="cta-actions-panel">
-        <div class="cta-contacts">
-          <div class="btn-primary">Partner With Us</div>
-          <div class="btn-outline">Investor Enquiries</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </section>
 
-<!-- ════════════════════════════ ABOUT ════════════════════════════ -->
-<section id="about">
-  <div class="about-hero">
-    <div class="page-hero-inner">
-      <div class="section-label">Our Story</div>
-      <h1 class="page-hero-title">We Started With a Simple Question:<br/><em>Why Are We Still Burning Carbon?</em></h1>
-      <p class="lead">The world has two carbon problems that actually cancel each other out — too much CO₂ in the atmosphere, and too much waste biomass going to landfills and incinerators. Veridia Energy was founded to solve both, simultaneously.</p>
-    </div>
+<div class="stats-bar">
+  <div class="stat reveal">
+    <span class="stat-n gradient-text">~8%</span>
+    <p class="stat-l">of global CO₂ footprint comes from aviation & chemical industrial segments</p>
   </div>
+  <div class="stat reveal reveal-delay-1">
+    <span class="stat-n gradient-text">1B+</span>
+    <p class="stat-l">tons of lignocellulosic plant biomass burned as waste annually</p>
+  </div>
+  <div class="stat reveal reveal-delay-2">
+    <span class="stat-n gradient-text">10×</span>
+    <p class="stat-l">accelerated project design lifecycles using targeted computational chemistry simulation</p>
+  </div>
+  <div class="stat reveal reveal-delay-3">
+    <span class="stat-n gradient-text">Zero</span>
+    <p class="stat-l">crude oil raw inputs required — engineering straight from waste carbon pipelines</p>
+  </div>
+</div>
 
-  <div class="section-wrap about-body">
-    <div class="about-grid">
-      <div class="about-col-story">
-        <h2 style="margin-bottom:1.2rem;">Why <em>Veridia</em> Exists</h2>
-        <p>Aviation cannot be electrified. The chemicals industry cannot run on sunlight. Steel, cement, and plastics require carbon feedstocks. These are the hardest corners of the decarbonisation challenge — and the ones most investors and startups avoid.</p>
-        <p>We don't avoid them. Our founders built their careers in precisely these areas: carbon capture systems, biomass conversion chemistry, catalytic process design, and AI-accelerated molecular discovery. Veridia is the company we built to put that expertise to work at scale.</p>
-        <p>We are headquartered in Navi Mumbai, operate at the intersection of world-class science and industrial pragmatism, and we measure success not in papers published but in tonnes of fossil carbon displaced.</p>
-        <hr class="divider"/>
-        <div class="mission-card">
-          <div class="mc-label">Our Mission</div>
-          <div class="mc-text">"To make sustainable fuels, chemicals, and materials the most economical choice for industry — by converting the carbon the world already has into the products it needs."</div>
-        </div>
-        <div class="mission-card" style="margin-top:1rem;">
-          <div class="mc-label" style="color:var(--amber);">Our Vision</div>
-          <div class="mc-text">"A world where CO₂ is a feedstock, biomass is a refinery, and no industry has to choose between profitability and the planet."</div>
-        </div>
+<section class="section-conflict" id="problem">
+  <div class="conflict-img-wrapper reveal">
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=85" alt="Agricultural biomass residue"/>
+  </div>
+  <div class="conflict-text-side reveal reveal-delay-1">
+    <span class="eyebrow">The Industrial Conflict</span>
+    <h2 class="h2-dark">Today's Bioeconomy<br/><em class="accent-text">Wastes Too Much Material</em></h2>
+    <div class="section-divider"></div>
+    <p class="lead-dark">
+      Grid infrastructures scale easily with standard renewables. However, air transport frameworks and complex chemical processing plants depend entirely on real liquid molecular structures. Veridia supplies exactly those drop-in molecular solutions.
+    </p>
+    
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-title">Mixed Waste Feedstocks</div>
+        <p class="challenge-desc">Traditional refinement assets cannot handle inconsistent regional biomass configurations or volatile gas stream compositions.</p>
       </div>
-      <div class="about-col-values">
-        <h2 style="margin-bottom:1.2rem;">How We <em>Work</em></h2>
-        <div class="value-list">
-          <div class="val"><div class="val-icon">🎯</div><div class="val-text"><h3>Outcomes Over Outputs</h3><p>We measure ourselves by industrial impact — tonnes displaced, processes licensed, partners scaled — not by publications or slide decks.</p></div></div>
-          <div class="val"><div class="val-icon">⚡</div><div class="val-text"><h3>Design Before Experiment</h3><p>We use molecular simulation and AI to make decisions before consuming expensive lab resources. This makes us faster and our results more reliable.</p></div></div>
-          <div class="val"><div class="val-icon">💡</div><div class="val-text"><h3>Commercial Rigour from Day One</h3><p>Every technology pathway is evaluated for economic viability alongside scientific merit. We don't develop solutions that can't be deployed.</p></div></div>
-          <div class="val"><div class="val-icon">🌍</div><div class="val-text"><h3>Open &amp; Transparent</h3><p>We publish our science, open-source our tools, and build in public — because credibility in deep tech is earned, not claimed.</p></div></div>
-          <div class="val"><div class="val-icon">🤝</div><div class="val-text"><h3>Partnership-First</h3><p>We don't build in isolation. Our model is co-development with industry, academia, and government — sharing risk, accelerating impact.</p></div></div>
-        </div>
+      <div class="challenge-card">
+        <div class="challenge-title">Extended R&D Cycles</div>
+        <p class="challenge-desc">Standard trial-and-error scientific discovery operations introduce years of delays and extensive over-budget capital constraints.</p>
       </div>
-    </div>
-
-    <hr class="divider"/>
-
-    <!-- TEAM -->
-    <div class="section-label">The Team</div>
-    <h2>Scientists &amp; Engineers Who've<br/><em>Done This Before</em></h2>
-    <div class="team-intro">
-      <p>Our team brings together expertise from India's premier research institutions, US national laboratories, and front-line industrial R&D. We combine the scientific depth of academia with the commercial instincts of industry.</p>
-    </div>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="tc-avatar">F</div>
-        <div class="tc-name">[Founder Name]</div>
-        <div class="tc-role">Founder & CEO</div>
-        <div class="tc-bio">Ph.D. Chemical Engineering. Expertise in carbon capture, bioenergy, and computational process design. Former researcher at a US national laboratory. [X]+ peer-reviewed publications.</div>
+      <div class="challenge-card">
+        <div class="challenge-title">Industrial Scaling Risks</div>
+        <p class="challenge-desc">Laboratory synthesis breakthroughs regularly collapse under real-world factory volume deployment without initial structural testing.</p>
       </div>
-      <div class="team-card">
-        <div class="tc-avatar">C</div>
-        <div class="tc-name">[Co-founder Name]</div>
-        <div class="tc-role">Co-founder & CTO</div>
-        <div class="tc-bio">Background in [AI/ML for chemistry / process engineering]. Previously at [Institution]. Leads technology development and computational platform architecture.</div>
-      </div>
-      <div class="team-card">
-        <div class="tc-avatar">A</div>
-        <div class="tc-name">[Scientific Advisor]</div>
-        <div class="tc-role">Scientific Advisor</div>
-        <div class="tc-bio">Professor / Senior Scientist at [Institution]. Expert in [catalysis / biorefinery]. Long-term collaborator and co-investigator on funded research programs.</div>
-      </div>
-      <div class="team-card">
-        <div class="tc-avatar">I</div>
-        <div class="tc-name">[Industry Advisor]</div>
-        <div class="tc-role">Industry Advisor</div>
-        <div class="tc-bio">Former [VP / Director] at [Energy / Chemical Company]. [X]+ years leading process technology commercialisation and technology licensing globally.</div>
+      <div class="challenge-card">
+        <div class="challenge-title">Unviable Green Premiums</div>
+        <p class="challenge-desc">Alternative products that double asset operational costs cannot scale. Commercial viability must be integrated from the start.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════ TECHNOLOGY ════════════════════════════ -->
-<section id="tech">
-  <div class="tech-hero">
-    <div class="page-hero-inner">
-      <div class="section-label">Our Solutions</div>
-      <h1 class="page-hero-title">Six Ways We're Replacing<br/><em>Fossil Carbon</em></h1>
-      <p class="lead" style="margin-bottom:0;">Each solution is a distinct value stream. Together, they form a closed-loop system that converts waste into value across the entire carbon cycle.</p>
+<section class="section-mid" id="technology">
+  <div class="section-header-center reveal">
+    <span class="eyebrow">The Processing Blueprint</span>
+    <h2 class="h2-dark">Veridia's Modular <em class="accent-text">Conversion Engine</em></h2>
+    <p class="lead-dark">
+      We bypass legacy laboratory limitations by resolving molecular engineering pathways in cloud-scale high-performance simulation matrices before running physical catalyst tests.
+    </p>
+  </div>
+
+  <div class="engine-container reveal">
+    <div class="engine-grid">
+      <div>
+        <div class="engine-col-title">Raw Waste Assets</div>
+        <div class="engine-stream-group">
+          <div class="engine-stream-card">
+            <h4>Cellulosic Waste Assets</h4>
+            <p>Farming residue matrices & unmanaged forestry leftovers.</p>
+          </div>
+          <div class="engine-stream-card">
+            <h4>Captured Industrial Gas</h4>
+            <p>Direct factory chimney stack carbon capture inputs.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="engine-arrow">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+      </div>
+      
+      <div class="engine-core-panel">
+        <h4>Predictive AI Optimization Engine</h4>
+        <p>Parallel processing models mapping optimal temperature dynamics, custom catalyst structures, and real-time plant economic parameters.</p>
+      </div>
+      
+      <div class="engine-arrow">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+      </div>
+      
+      <div>
+        <div class="engine-col-title">Refined Deliverables</div>
+        <div class="engine-stream-group">
+          <div class="engine-stream-card">
+            <h4>Sustainable Aviation Fuel</h4>
+            <p>ASTM-certified commercial drop-in kerosene alternatives.</p>
+          </div>
+          <div class="engine-stream-card">
+            <h4>Bio-Platform Intermediates</h4>
+            <p>Renewable polymer chemical building blocks.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="section-wrap">
-    <div class="pillar-list">
-
-      <div class="pillar">
-        <div class="pillar-num">01</div>
-        <div class="pillar-body">
-          <div class="pillar-kicker">Aviation · Fuel</div>
-          <h3>CO₂ to Sustainable Aviation Fuel (SAF)</h3>
-          <p class="pillar-desc">Aviation accounts for a significant share of hard-to-abate emissions — and it cannot go electric. We convert captured CO₂ directly into SAF: a drop-in jet fuel that works in every aircraft flying today, requires no new airport infrastructure, and cuts lifecycle emissions dramatically versus conventional kerosene. Our process is designed around existing carbon capture facilities at industrial sites, turning CO₂ from a compliance cost into a fuel revenue stream.</p>
-          <div class="pillar-for">Relevant for: Airlines · Fuel distributors · Refineries · SAF mandate compliance</div>
-        </div>
-        <div class="pillar-tag">Flagship</div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon-circle">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       </div>
-
-      <div class="pillar">
-        <div class="pillar-num">02</div>
-        <div class="pillar-body">
-          <div class="pillar-kicker">Biorefinery · Chemicals</div>
-          <h3>Biomass to Bio-based Chemicals</h3>
-          <p class="pillar-desc">Agricultural residues, forestry waste, and energy crops are composed of cellulose, hemicellulose, and lignin — nature's own carbon-rich feedstocks. We fractionate these materials into fermentable sugars and aromatic building blocks, then convert them into platform chemicals that replace petroleum-derived equivalents across paints, adhesives, pharmaceuticals, and polymers. The same tonne of biomass that was previously burned for heat becomes a source of speciality chemical revenue.</p>
-          <div class="pillar-for">Relevant for: Specialty chemical companies · Agricultural sector · Circular economy programs</div>
-        </div>
-        <div class="pillar-tag">Core</div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">03</div>
-        <div class="pillar-body">
-          <div class="pillar-kicker">Materials · Bio-composites</div>
-          <h3>Biomass to Advanced Materials</h3>
-          <p class="pillar-desc">Beyond chemicals, biomass streams — particularly lignin — are precursors to high-performance materials including carbon fibres, bio-based polyols for foams and coatings, and functionalised carbon additives for composites. We develop these materials with performance specifications matched to existing industrial grades, enabling substitution without re-engineering downstream products.</p>
-          <div class="pillar-for">Relevant for: Packaging · Construction · Automotive composites · Electronics</div>
-        </div>
-        <div class="pillar-tag">Core</div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">04</div>
-        <div class="pillar-body">
-          <div class="pillar-kicker">CCUS · Decarbonisation</div>
-          <h3>Carbon Capture & Closed-Loop Utilisation</h3>
-          <p class="pillar-desc">Carbon capture is only half the answer — the other half is what you do with the CO₂. Our CCUS solutions are designed for industrial integration: capturing emissions from power plants, cement, steel, and chemical facilities, and feeding that CO₂ directly into our SAF and chemicals pathways. The result is a closed-loop system where industrial CO₂ never reaches the atmosphere, and instead becomes product. We also optimise capture systems themselves — minimising energy penalties and solvent degradation to make CCUS economically viable without subsidies.</p>
-          <div class="pillar-for">Relevant for: Power utilities · Cement & steel · Chemical complexes · Carbon credit markets</div>
-        </div>
-        <div class="pillar-tag">Enabler</div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">05</div>
-        <div class="pillar-body">
-          <div class="pillar-kicker">AI · Process Design</div>
-          <h3>AI-Accelerated Process Development</h3>
-          <p class="pillar-desc">The traditional approach to process development — trial, error, and iteration in the lab — is slow and expensive. We have built AI and machine learning models that predict how reactions will behave, which catalysts will perform best, and what process conditions will deliver the highest yield and purity, before a single experiment begins. This isn't a research tool. It's an industrial R&D platform that compresses development timelines and dramatically reduces the cost of finding the right answer.</p>
-          <div class="pillar-for">Relevant for: Corporate R&D labs · CROs · Partners seeking faster technology development</div>
-        </div>
-        <div class="pillar-tag">Platform</div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">06</div>
-        <div class="pillar-body">
-          <div class="pillar-kicker">Simulation · Validation</div>
-          <h3>Molecular-Level Process Validation</h3>
-          <p class="pillar-desc">Before any process is built at scale, we validate it at the atomic level — using advanced simulation to understand exactly why it works, where the failure modes are, and how it will perform under industrial conditions. This de-risks scale-up, reduces pilot plant costs, and gives our partners confidence that what works in the lab will work in the plant. It is the scientific foundation that underpins every solution Veridia delivers.</p>
-          <div class="pillar-for">Relevant for: All industry partners · Licensing due diligence · Regulatory submissions</div>
-        </div>
-        <div class="pillar-tag">Foundation</div>
-      </div>
-
+      <h3>Atomic-Scale Simulation</h3>
+      <p>We analyze chemical reactions at the molecular scale, screening thousands of potential pathways virtually before entering a physical lab.</p>
     </div>
-
-    <!-- APPROACH BOX -->
-    <div class="approach-section">
-      <h3>🔬 What Makes Our Approach Different</h3>
-      <div class="approach-2col">
-        <div class="ap-item"><h4>We design before we build</h4><p>Competitors run experiments to find answers. We run simulations — validating at the molecular level before committing lab resources, compressing timelines by up to 10×.</p></div>
-        <div class="ap-item"><h4>AI as infrastructure, not a feature</h4><p>Our ML models are integrated into every step of development — not bolted on. They improve continuously, creating a compounding advantage over time.</p></div>
-        <div class="ap-item"><h4>Economics baked in from day one</h4><p>Every technology pathway is assessed for commercial viability as it's developed. We don't build solutions that look good in the lab but fall apart on the cost sheet.</p></div>
-        <div class="ap-item"><h4>Plug-in, not rebuild</h4><p>Our solutions are engineered to integrate with existing industrial infrastructure. Partners don't need to rebuild plants — they need to redirect inputs and add a conversion step.</p></div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon-circle">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
       </div>
+      <h3>AI Catalyst Discovery</h3>
+      <p>Machine learning models identify ideal compound candidates and reaction conditions, condensing traditional long-term chemical tracking operations.</p>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon-circle">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <h3>Techno-Economic Modeling</h3>
+      <p>Cost and scaling data are integrated directly into our R&D pipeline, ensuring all chemical synthesis designs are commercially viable at scale.</p>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════ BLOG ════════════════════════════ -->
-<section id="blog">
-  <div class="blog-hero">
-    <div class="page-hero-inner">
-      <div class="series-label">The Veridia Intelligence Series</div>
-      <h1 class="page-hero-title page-hero-title--blog">What We Know About<br/><em>Decarbonising Industry</em></h1>
-      <p class="lead blog-intro" style="margin-bottom:0;">No jargon. No hype. Just rigorous thinking on the fuels, chemistry, and economics that will define the next industrial era — from the team building it.</p>
-    </div>
+<div class="fullbleed">
+  <img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=1800&q=80" alt="Sustainable clean horizon"/>
+  <div class="fullbleed-content">
+    <span class="eyebrow" style="color:var(--mint);">Rigorous Verification Standards</span>
+    <h2 class="h2-dark" style="margin-bottom:16px;">A Solid Scientific Foundation</h2>
+    <p class="lead-dark" style="margin-bottom:24px;">
+      Our processing models undergo exhaustive verification against rigorous academic criteria, ensuring our clean-energy alternatives drop seamlessly into existing industrial distribution networks.
+    </p>
+    <a href="#contact" class="btn-green">Work With Our Team</a>
+  </div>
+</div>
+
+<section class="section-dark" id="solutions">
+  <div class="section-header-center reveal">
+    <span class="eyebrow">Commercial Vectors</span>
+    <h2 class="h2-dark">Six Core Mechanisms Displacing <em class="accent-text">Fossil Hydrocarbons</em></h2>
   </div>
 
-  <div class="section-wrap">
-    <div class="post-grid">
-
-      <div class="post-card">
-        <div class="post-num">Series · Post 01</div>
-        <div class="post-tags"><span class="ptag">SAF</span><span class="ptag">Aviation</span></div>
-        <div class="post-title">Why Aviation Can't Go Electric — and What That Means for the Planet</div>
-        <div class="post-hook">Batteries have transformed cars. But a fully loaded long-haul aircraft would need batteries weighing more than the plane itself. Here's why SAF is the only credible answer — and what it will take to produce it at scale.</div>
-        <div class="post-outline"><div class="post-outline-label">What you'll learn</div><ul><li>The physics of why electrification fails for aviation</li><li>What SAF is and how it's different from biofuel</li><li>The CO₂-to-SAF conversion pathway explained simply</li><li>Where the economics stand today — and when they break even</li></ul></div>
+  <div class="challenges-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="challenge-card reveal">
+      <div class="challenge-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.5 8l17 3-1 5H4.5L3.5 8z"/></svg>
       </div>
-
-      <div class="post-card">
-        <div class="post-num">Series · Post 02</div>
-        <div class="post-tags"><span class="ptag">Biomass</span><span class="ptag">Biorefinery</span></div>
-        <div class="post-title">The Billion-Tonne Opportunity Hidden in Agricultural Waste</div>
-        <div class="post-hook">Every year, farmers burn crop residues, sawmills discard wood chips, and paper mills dump lignin. Together, these represent over a billion tonnes of untapped chemical feedstock. We explain what's stopping the world from using it — and how that's changing.</div>
-        <div class="post-outline"><div class="post-outline-label">What you'll learn</div><ul><li>What lignocellulosic biomass is and why it's valuable</li><li>The three components of biomass and what each becomes</li><li>Why converting biomass is harder than it sounds</li><li>The new processes making biomass valorisation economically viable</li></ul></div>
-      </div>
-
-      <div class="post-card">
-        <div class="post-num">Series · Post 03</div>
-        <div class="post-tags"><span class="ptag">CCUS</span><span class="ptag">Policy</span></div>
-        <div class="post-title">Carbon Capture Isn't Enough. You Have to Use It.</div>
-        <div class="post-hook">CCS (Carbon Capture and Storage) buries CO₂ underground and calls it a day. CCUS converts it into something useful. The difference in economics — and industrial logic — is enormous. Here's why utilisation changes the entire business case for carbon capture.</div>
-        <div class="post-outline"><div class="post-outline-label">What you'll learn</div><ul><li>The difference between CCS and CCUS — and why it matters</li><li>What you can make from CO₂ (it's more than you think)</li><li>The cost structure of carbon capture and where utilisation helps</li><li>India's CCUS landscape and the policy gap that needs filling</li></ul></div>
-      </div>
-
-      <div class="post-card">
-        <div class="post-num">Series · Post 04</div>
-        <div class="post-tags"><span class="ptag">AI</span><span class="ptag">R&D</span></div>
-        <div class="post-title">How AI Is Cutting Years Off the Chemistry Development Cycle</div>
-        <div class="post-hook">Finding the right catalyst for a new reaction used to take years of trial-and-error experimentation. AI-driven virtual screening is compressing that to weeks. We break down how — and why it's not magic, just better science.</div>
-        <div class="post-outline"><div class="post-outline-label">What you'll learn</div><ul><li>What AI actually does in a chemistry lab (and what it doesn't)</li><li>How virtual screening works without running a single experiment</li><li>The data challenge: why good models need good training sets</li><li>Real examples of AI cutting development timelines in half</li></ul></div>
-      </div>
-
-      <div class="post-card">
-        <div class="post-num">Series · Post 05</div>
-        <div class="post-tags"><span class="ptag">Economics</span><span class="ptag">Deep Tech</span></div>
-        <div class="post-title">Why the Cleanest Solution Also Has to Be the Cheapest One</div>
-        <div class="post-hook">Sustainable technology that costs twice as much as what it replaces will never scale. We make the case for why techno-economic viability isn't a constraint on climate innovation — it's the entire point. And how Veridia builds it in from day one.</div>
-        <div class="post-outline"><div class="post-outline-label">What you'll learn</div><ul><li>The "green premium" problem and why it stalls adoption</li><li>What a techno-economic analysis actually tells you</li><li>The cost levers in SAF, bio-chemicals, and CCUS</li><li>How design-stage economics changes which technologies get built</li></ul></div>
-      </div>
-
-      <div class="post-card">
-        <div class="post-num">Series · Post 06</div>
-        <div class="post-tags"><span class="ptag">India</span><span class="ptag">Policy</span><span class="ptag">Market</span></div>
-        <div class="post-title">India's Decarbonisation Moment — and Why the Chemistry Has to Be Done Here</div>
-        <div class="post-hook">India is the world's third-largest CO₂ emitter, has vast agricultural biomass resources, and faces hard net-zero commitments. The solutions it needs cannot all be imported. We make the case for why India must build its own decarbonisation technology stack — and what Veridia is doing about it.</div>
-        <div class="post-outline"><div class="post-outline-label">What you'll learn</div><ul><li>India's industrial emissions profile and the hard-to-abate sectors</li><li>Why imported technology isn't sufficient or sustainable</li><li>The biomass and CO₂ resources India already has</li><li>The policy environment and what's needed to unlock private investment</li></ul></div>
-      </div>
-
-      <div class="post-card post-card--featured">
-        <div class="post-num">Series · Post 07</div>
-        <div class="post-tags"><span class="ptag ptag--accent">Investor</span><span class="ptag ptag--accent">Thesis</span></div>
-        <div class="post-title">The Deep-Tech Bet: Why the Next Energy Transition Is Won in the Lab, Not the Field</div>
-        <div class="post-hook">Solar panels and wind turbines are deployed, not discovered. But decarbonising aviation, chemicals, and heavy industry requires genuine scientific breakthroughs. This is our founding thesis — and why we believe asset-light, IP-rich deep-tech is the most compelling climate investment of the decade.</div>
-        <div class="post-outline"><div class="post-outline-label">What you'll learn</div><ul><li>Why hard-to-abate sectors require a different kind of innovation</li><li>The deep-tech startup model: IP, licensing, and asset-light scaling</li><li>Why computational chemistry is a competitive moat, not just a tool</li><li>Veridia's roadmap from early R&D to licensed industrial process</li></ul></div>
-      </div>
-
+      <div class="challenge-title">01 · Sustainable Aviation Fuel</div>
+      <p class="challenge-desc">ASTM-compliant drop-in jet fuel sourced from point-source carbon output streams. Fully compatible with existing commercial flight engine machinery.</p>
     </div>
-  </div>
-
-  <div class="cta-band">
-    <div class="cta-split">
-      <div class="cta-copy">
-        <div class="section-label">Stay Informed</div>
-        <h2>Get the <em>Veridia Intelligence</em> Series in Your Inbox</h2>
-        <p>Technical clarity on decarbonisation, bio-based chemistry, and the economics of net-zero industry — written for people who make decisions.</p>
+    <div class="challenge-card reveal reveal-delay-1">
+      <div class="challenge-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18"/></svg>
       </div>
-      <div class="cta-actions-panel">
-        <div class="cta-contacts">
-          <div class="btn-primary">Subscribe to Updates</div>
-        </div>
+      <div class="challenge-title">02 · Bio-Based Chemicals</div>
+      <p class="challenge-desc">Industrial agricultural waste fractions synthesized into structural raw intermediates, replacing oil-derived polymers, coatings, and specialized adhesives.</p>
+    </div>
+    <div class="challenge-card reveal reveal-delay-2">
+      <div class="challenge-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
       </div>
+      <div class="challenge-title">03 · Advanced Materials</div>
+      <p class="challenge-desc">High-purity technical extraction converting lignin complexes into clean carbon fiber matrices and functional additives for consumer shipping containers.</p>
+    </div>
+    <div class="challenge-card reveal">
+      <div class="challenge-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+      </div>
+      <div class="challenge-title">04 · Carbon Transformation Modules</div>
+      <p class="challenge-desc">Integrated CCUS processing frames built to tap directly into emissions from steelworks, processing centers, and heavy energy generation complexes.</p>
+    </div>
+    <div class="challenge-card reveal reveal-delay-1">
+      <div class="challenge-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div class="challenge-title">05 · AI Process Acceleration</div>
+      <p class="challenge-desc">Licensable algorithm pipelines built to catalog multi-variable fluid dynamics, streamlining client engineering roadmaps up to tenfold.</p>
+    </div>
+    <div class="challenge-card reveal reveal-delay-2">
+      <div class="challenge-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="challenge-title">06 // Scale Validation Models</div>
+      <p class="challenge-desc">High-fidelity virtual pilot plant stress tests engineered to identify critical production failures before deploying physical equipment assets.</p>
     </div>
   </div>
 </section>
 
-<!-- =========================== Team ================================-->
-
-<section id="team">
-  <div class="blog-hero">
-    <div class="page-hero-inner">
-      <div class="series-label">Our Team</div>
-      <h1 class="page-hero-title page-hero-title--blog">Meet the <em>People Behind Veridia</em></h1>
-      <p class="lead blog-intro">
-        A multidisciplinary team of chemical engineers and researchers working on carbon capture, biomass conversion, and sustainable fuels.
+<section class="section-mid" id="impact">
+  <div class="split reverse">
+    <div class="split-img-wrapper reveal">
+      <div class="split-img">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Mountain environment overview"/>
+      </div>
+    </div>
+    <div class="split-text reveal reveal-delay-1">
+      <span class="eyebrow">Systemic Environmental Impact</span>
+      <h2 class="h2-dark">Transforming Liabilities Into <em class="accent-text">Profitable Assets</em></h2>
+      <div class="section-divider"></div>
+      <p class="lead-dark">
+        By treating carbon and agricultural waste as highly valuable raw material inputs, Veridia delivers drop-in clean alternatives that remain cost-competitive with traditional fossil fuels.
       </p>
-    </div>
-  </div>
-
-  <div class="section-wrap">
-    <div class="team-page-grid">
-
-      <article class="team-member-card">
-        <img src="images/tamalsir.jpg" alt="Dr Tamal Banerjee" class="team-member-photo">
-        <div class="team-member-meta">
-          <div class="team-member-label">Director</div>
-          <div class="team-member-tags"><span class="team-tag">Process</span><span class="team-tag">Simulation</span></div>
-          <h3 class="team-member-name">Prof Tamal Banerjee</h3>
-          <p class="team-member-bio">Process Engineer specializing in biomass conversion and process optimization. Experienced in scaling lab processes to industrial applications using simulation tools.</p>
-          <div class="team-member-expertise">
-            <div class="team-expertise-title">Expertise</div>
-            <ul class="team-expertise-list">
-              <li>Process Design & Optimization</li>
-              <li>Biomass Conversion</li>
-              <li>Simulation (Aspen Plus)</li>
-            </ul>
+      
+      <div class="impact-row-group">
+        <div class="impact-row">
+          <div class="impact-num">3</div>
+          <div class="impact-text">
+            <h4>Core Commercial Deliverables</h4>
+            <p>High-demand channels spanning sustainable aviation fuel, circular green chemicals, and technical building materials.</p>
           </div>
         </div>
-      </article>
-
-      <!-- <article class="team-member-card">
-        <img src="" alt="Dhiren" class="team-member-photo">
-        <div class="team-member-meta">
-          <div class="team-member-label">Director</div>
-          <div class="team-member-tags"><span class="team-tag">Reaction</span><span class="team-tag">Catalysis</span></div>
-          <h3 class="team-member-name">Prof VV</h3>
-          <p class="team-member-bio">Reaction Engineer focused on catalytic systems for CO₂ conversion into fuels. Works on improving reaction efficiency and selectivity.</p>
-          <div class="team-member-expertise">
-            <div class="team-expertise-title">Expertise</div>
-            <ul class="team-expertise-list">
-              <li>Catalytic Reaction Engineering</li>
-              <li>Reactor Design</li>
-              <li>CO₂ Utilisation</li>
-            </ul>
+        <div class="impact-row">
+          <div class="impact-num">6+</div>
+          <div class="impact-text">
+            <h4>Proprietary Scientific Pillars</h4>
+            <p>A full-stack R&D approach, spanning raw atomic fluid analysis to industrial factory pipeline blueprint integration.</p>
           </div>
         </div>
-      </article> -->
-
-      <article class="team-member-card">
-        <img src="images/dhiren.jpeg" alt="Kukho Das" class="team-member-photo">
-        <div class="team-member-meta">
-          <div class="team-member-label">Team · 03</div>
-          <div class="team-member-tags"><span class="team-tag">Biorefinery</span><span class="team-tag">Biomass</span></div>
-          <h3 class="team-member-name">Dr. Dhirendra Kumar mishra</h3>
-          <p class="team-member-bio">Bioprocess Engineer working on biomass fractionation and conversion into bio-based chemicals and materials.</p>
-          <div class="team-member-expertise">
-            <div class="team-expertise-title">Expertise</div>
-            <ul class="team-expertise-list">
-              <li>Biorefinery Systems</li>
-              <li>Biomass Processing</li>
-              <li>Fermentation Technologies</li>
-            </ul>
+        <div class="impact-row">
+          <div class="impact-num">0%</div>
+          <div class="impact-text">
+            <h4>Fossil Raw Input Demands</h4>
+            <p>100% circular product development built entirely within existing agricultural and industrial waste parameters.</p>
           </div>
         </div>
-      </article>
-
-      <article class="team-member-card">
-        <img src="images/Nipu.jpeg" alt="Membr3" class="team-member-photo">
-        <div class="team-member-meta">
-          <div class="team-member-label">Team · 04</div>
-          <div class="team-member-tags"><span class="team-tag">Simulation</span><span class="team-tag">Economics</span></div>
-          <h3 class="team-member-name">Dr. Nipu Kumar Das</h3>
-          <p class="team-member-bio">Process Simulation Engineer focused on techno-economic analysis and industrial-scale modeling of energy systems.</p>
-          <div class="team-member-expertise">
-            <div class="team-expertise-title">Expertise</div>
-            <ul class="team-expertise-list">
-              <li>Aspen Plus Simulation</li>
-              <li>Techno-Economic Analysis</li>
-              <li>Process Optimization</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- <article class="team-member-card">
-        <img src="images/nipu.jpeg" alt="Member5" class="team-member-photo">
-        <div class="team-member-meta">
-          <div class="team-member-label">Team · 05</div>
-          <div class="team-member-tags"><span class="team-tag">CCUS</span><span class="team-tag">Carbon</span></div>
-          <h3 class="team-member-name">Member  Name4</h3>
-          <p class="team-member-bio">Carbon Capture Specialist working on CO₂ absorption systems and sustainable carbon utilization technologies.</p>
-          <div class="team-member-expertise">
-            <div class="team-expertise-title">Expertise</div>
-            <ul class="team-expertise-list">
-              <li>Carbon Capture (CCUS)</li>
-              <li>Solvent Systems</li>
-              <li>Emission Reduction Technologies</li>
-            </ul>
-          </div>
-        </div>
-      </article> -->
-
+      </div>
     </div>
   </div>
 </section>
 
+<section class="section-dark" id="partners-section">
+  <div class="section-header-center reveal">
+    <span class="eyebrow">Enterprise Ecosystem</span>
+    <h2 class="h2-dark">Built for Partners Who <em class="accent-text">Value Speed</em></h2>
+  </div>
 
+  <div class="who-grid">
+    <div class="who-card reveal">
+      <span class="who-pill">Enterprise Groups</span>
+      <h3>Airlines, Refineries & Heavy Agricultural Processors</h3>
+      <p class="desc">For global logistics managers seeking standard-compliant routes to target carbon reduction mandates without altering field machinery infrastructure.</p>
+      <div class="foot">Asset Integration Licensing // Joint Structural Exploration</div>
+    </div>
+    <div class="who-card reveal reveal-delay-1">
+      <span class="who-pill">Public Governance</span>
+      <h3>Regulatory Ministries & Climate Advisory Boards</h3>
+      <p class="desc">For policy leaders developing clean alternative aviation fuel mandates, validation rules, and circular bio-economy strategy programs.</p>
+      <div class="foot">Policy Consultation Services // Techno-Economic Appraisals</div>
+    </div>
+    <div class="who-card reveal">
+      <span class="who-pill">Scientific Collectives</span>
+      <h3>National Laboratories & Academic Research Institutions</h3>
+      <p class="desc">For university researchers seeking commercial development vehicles, joint research grants, and real-world scalability testing for raw chemical methodologies.</p>
+      <div class="foot">Co-Development Frameworks // High-Performance Compute Sharing</div>
+    </div>
+    <div class="who-card reveal reveal-delay-1">
+      <span class="who-pill">Capital Funds</span>
+      <h3>Climate-Tech VCs & Institutional Deep-Tech Investors</h3>
+      <p class="desc">For asset managers seeking asset-light, IP-defended deep-tech companies with clear near-term software and technology licensing revenue paths.</p>
+      <div class="foot">Strategic Seed & Series A Capital Rounds</div>
+    </div>
+  </div>
+</section>
 
-<div class="contact-footer-wrap">
-  <section class="contact-us-panel" id="contact">
-    <br>
-    <div class="contact-us-box">
-      <div class="contact-us-head">
-        <div class="section-label">Contact Us</div>
-        <h2>Connect With <em>Veridia Energy</em></h2>
-        <p>For collaboration, partnerships and official communication.</p>
+<section class="section-mid" id="team">
+  <div class="section-header-center reveal">
+    <span class="eyebrow">The Brain Trust</span>
+    <h2 class="h2-dark">Scientists & Engineers Who've <em class="accent-text">Scaled Production Before</em></h2>
+    <p class="lead-dark">
+      Bringing together decades of combined research expertise from premier domestic centers, international science facilities, and real heavy industrial plant sites.
+    </p>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-avatar-container">
+        <img class="team-avatar" src="https://nitu-das305.github.io/veridia-energy-lab/images/tamalsir.jpg" alt="Prof Tamal Banerjee"/>
       </div>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-card-label">Registration Address</div>
-          <p>
-            Vill - Bahari, PO - Niz Bahari, District - Barprta, PS - Tarabari, State - Assam, Country - India<br/>
-            PIN - 781302
-          </p>
-        </div>
-        <div class="contact-card">
-          <div class="contact-card-label">Official Mail ID</div>
-          <p><a class="contact-link" href="mailto:verdiabio2025@gmail.com">verdiabio2025@gmail.com</a></p>
-        </div>
-        <div class="contact-card">
-          <div class="contact-card-label">Contact Number</div>
-          <p><a class="contact-link" href="tel:+917086761392">7086761392</a>, <a class="contact-link" href="tel:+918486665727">8486665727</a></p>
-        </div>
+      <span class="team-role">Director · Process Simulation</span>
+      <div class="team-name">Prof. Tamal Banerjee</div>
+      <div class="team-qual">Ph.D. Chemical Engineering</div>
+      <div class="team-tags">
+        <span class="tag">Biomass Conversion</span>
+        <span class="tag">Aspen Plus Expert</span>
+        <span class="tag">System Blueprinting</span>
       </div>
     </div>
-  </section>
+    <!-- <div class="team-card reveal reveal-delay-1">
+      <div class="team-avatar-container">
+        <img class="team-avatar" src="https://nitu-das305.github.io/veridia-energy-lab/images/dhiren.jpeg" alt="Dr Dhirendra Kumar Mishra"/>
+      </div>
+      <span class="team-role">Biorefinery · Biomass Systems</span>
+      <div class="team-name">Dr. Dhirendra Kumar Mishra</div>
+      <div class="team-qual">Ph.D. Bioprocess Engineering</div>
+      <div class="team-tags">
+        <span class="tag">Biorefinery Pipelines</span>
+        <span class="tag">Advanced Fermentation</span>
+      </div>
+    </div> -->
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-avatar-container">
+        <img class="team-avatar" src="https://nitu-das305.github.io/veridia-energy-lab/images/dir2.jpeg" alt="Dr Dhirendra Kumar Mishra"/>
+      </div>
+      <span class="team-role">Director · Biomass Systems</span>
+      <div class="team-name">Prof. Vaibhav V. Goud</div>
+      <div class="team-qual">Ph.D. Bioprocess Engineering</div>
+      <div class="team-tags">
+        <span class="tag">Biorefinery Pipelines</span>
+        <span class="tag">Advanced Fermentation</span>
+      </div>
+    </div>
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-avatar-container">
+        <img class="team-avatar" src="https://nitu-das305.github.io/veridia-energy-lab/images/Nipu.jpeg" alt="Dr Nipu Kumar Das"/>
+      </div>
+      <span class="team-role">Simulation · Asset Economics</span>
+      <div class="team-name">Dr. Nipu Kumar Das</div>
+      <div class="team-qual">Ph.D. Process Engineering</div>
+      <div class="team-tags">
+        <span class="tag">Techno-Economic Analysis</span>
+        <span class="tag">Process Optimization</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-col">
-        <div class="footer-brand">
-          <img src="images/verdialogo.jpeg" alt="Verdia logo" class="footer-logo-img">
-          <div class="footer-logo">VERIDIA ENERGY</div>
-        </div>
-        <p class="footer-note">Turning waste carbon into sustainable fuels, chemicals, and advanced materials for hard-to-abate industries.</p>
-      </div>
-      <div class="footer-col">
-        <p class="footer-title">Quick Links</p>
-        <ul class="footer-links">
-          <li><a href="#home" onclick="show('home',document.querySelectorAll('.nav-link')[0])">Home</a></li>
-          <li><a href="#about" onclick="show('about',document.querySelectorAll('.nav-link')[1])">About</a></li>
-          <li><a href="#tech" onclick="show('tech',document.querySelectorAll('.nav-link')[2])">Solutions</a></li>
-          <li><a href="#blog" onclick="show('blog',document.querySelectorAll('.nav-link')[3])">Insights</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <p class="footer-title">Legal</p>
-        <ul class="footer-links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-          <li><a href="#">Disclaimer</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <p class="footer-title">Connect</p>
-        <ul class="footer-links">
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">X (Twitter)</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="mailto:contact@veridiaenergy.com">Email Us</a></li>
-        </ul>
-      </div>
+<section class="section-dark" id="insights">
+  <div class="insights-header-block reveal">
+    <div>
+      <span class="eyebrow">Veridia Intelligence Series</span>
+      <h2 class="h2-dark">What We Know About <em class="accent-text">Decarbonizing Heavy Industry</em></h2>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 Veridia Energy Private Limited · Navi Mumbai, India</p>
-      <p class="footer-tagline">Turning Waste Carbon Into Industrial Value</p>
+    <a href="#contact" class="btn-outline-w">Subscribe to Intelligence Feed</a>
+  </div>
+
+  <div class="insights-grid">
+    <div class="insight-card reveal">
+      <div class="insight-tags"><span class="ins-tag">SAF</span><span class="ins-tag">Aviation</span></div>
+      <div class="insight-title">Why Long-Haul Aviation Can't Go Fully Electric</div>
+      <p class="insight-desc">Commercial planes require energy densities that batteries simply cannot provide. We outline why high-grade sustainable drop-in chemical fuel is the only scalable path forward.</p>
+      <a href="#" class="insight-link">Read Analysis</a>
     </div>
-  </footer>
+    <div class="insight-card reveal reveal-delay-1">
+      <div class="insight-tags"><span class="ins-tag">Biomass</span><span class="ins-tag">Industrial Waste</span></div>
+      <div class="insight-title">The Billion-Ton Opportunity in Agricultural Leftovers</div>
+      <p class="insight-desc">Unmanaged crop residue burn cycles degrade regional air quality. Converting these assets into platform chemicals unlocks over $100B in circular market value.</p>
+      <a href="#" class="insight-link">Read Analysis</a>
+    </div>
+    <div class="insight-card reveal reveal-delay-2">
+      <div class="insight-tags"><span class="ins-tag">CCUS</span><span class="ins-tag">Policy Frameworks</span></div>
+      <div class="insight-title">Moving Past Sub-surface Carbon Storage Networks</div>
+      <p class="insight-desc">Burying captured greenhouse gases under bedrock creates ongoing cost liabilities. Transforming point-source gas into drop-in commodities creates long-term structural returns.</p>
+      <a href="#" class="insight-link">Read Analysis</a>
+    </div>
+    <div class="insight-card reveal">
+      <div class="insight-tags"><span class="ins-tag">AI Simulation</span><span class="ins-tag">Process Design</span></div>
+      <div class="insight-title">Accelerating Catalyst Discovery with Machine Learning</div>
+      <p class="insight-desc">Traditional laboratory discovery workflows require months of manual validation. Cloud-based predictive models evaluate millions of molecule combinations in days.</p>
+      <a href="#" class="insight-link">Read Analysis</a>
+    </div>
+    <div class="insight-card reveal reveal-delay-1">
+      <div class="insight-tags"><span class="ins-tag">Deep Tech</span><span class="ins-tag">Market Economics</span></div>
+      <div class="insight-title">Why Sustainable Solutions Must Win on Base Pricing</div>
+      <p class="insight-desc">Eco-friendly alternatives that carry high green premiums never see mass commercial adoption. True climate innovation relies on structural cost parity from day one.</p>
+      <a href="#" class="insight-link">Read Analysis</a>
+    </div>
+    <div class="insight-card reveal reveal-delay-2">
+      <div class="insight-tags"><span class="ins-tag">Regional Market</span><span class="ins-tag">India Energy</span></div>
+      <div class="insight-title">Building India's Sovereign Carbon Processing Stack</div>
+      <p class="insight-desc">With massive regional biomass volumes and growing manufacturing demands, developing localization frameworks for chemical transformation is a critical economic imperative.</p>
+      <a href="#" class="insight-link">Read Analysis</a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <span class="eyebrow" style="text-align:center;">Initiate Collaboration</span>
+  <h2 class="h2-dark">Ready to Build the <em class="accent-text">Post-Carbon Economy</em> Together?</h2>
+  <p class="lead-dark">
+    Whether you are an industrial manager, infrastructure investor, or institutional research scientist, let's talk decarbonization.
+  </p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-green">Partner With Our Team</a>
+    <a href="#contact" class="btn-outline-w">Investor Inquiries</a>
+  </div>
 </div>
-</div>
+
+<section class="section-dark" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Secure Communications</span>
+      <h2 class="h2-dark">Connect With <br/><em class="accent-text">Veridia Energy Hub</em></h2>
+      <div class="section-divider"></div>
+      <p class="lead-dark">Reach out to our offices to start technical licensing validation reviews or project scoping calls.</p>
+      
+      <div class="contact-detail-list">
+        <div class="c-item">
+          <span class="c-label">Corporate Registry Hub</span>
+          <span class="c-val">Vill – Bahari, PO – Niz Bahari<br/>District – Barpeta, PS – Tarabari<br/>Assam, India</span>
+        </div>
+        <div class="c-item">
+          <span class="c-label">Official Operations Email</span>
+          <a href="mailto:verdiabio2025@gmail.com" class="c-val">verdiabio2025@gmail.com</a>
+        </div>
+        <div class="c-item">
+          <span class="c-label">Direct Communications Links</span>
+          <a href="tel:+917086761392" class="c-val">+91 70867 61392</a>
+          <a href="tel:+918486665727" class="c-val">+91 84866 65727</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="f-group">
+            <label class="f-label">First Name</label>
+            <input type="text" class="f-input" placeholder="Arjun"/>
+          </div>
+          <div class="f-group">
+            <label class="f-label">Last Name</label>
+            <input type="text" class="f-input" placeholder="Sharma"/>
+          </div>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Enterprise Organization</label>
+          <input type="text" class="f-input" placeholder="Institution Name"/>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Email Endpoint</label>
+          <input type="email" class="f-input" placeholder="arjun@company.com"/>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Operational Mandate</label>
+          <select class="f-select">
+            <option value="">Select organizational function</option>
+            <option>Commercial Enterprise Partner</option>
+            <option>Institutional Capital Manager / VC</option>
+            <option>Research Scientist / Academic Lead</option>
+            <option>Public Policy / Regulatory Director</option>
+            <option>Other Specialized Inquiries</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Brief Briefing Statement</label>
+          <textarea class="f-textarea" placeholder="Detail your target scaling requirements or collaboration parameters..."></textarea>
+        </div>
+        <button type="button" class="btn-green" style="align-self: flex-start;">Transmit Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">
+        <img src="https://nitu-das305.github.io/veridia-energy-lab/images/verdialogo.jpeg" alt="Veridia Logo"/>
+        <span>Veridia Energy</span>
+      </div>
+      <p class="footer-desc">Converting residual waste assets into scalable aviation fuels and circular chemical replacements for global enterprise logistics.</p>
+    </div>
+    <div>
+      <div class="footer-col-h">System Directories</div>
+      <ul class="footer-links">
+        <li><a href="#technology">Processing Engine</a></li>
+        <li><a href="#solutions">Product Vectors</a></li>
+        <li><a href="#impact">Impact Modeling</a></li>
+        <li><a href="#team">Scientific Board</a></li>
+        <li><a href="#insights">Intelligence Series</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Ecosystem Channels</div>
+      <ul class="footer-links">
+        <li><a href="#">Corporate LinkedIn</a></li>
+        <li><a href="#">X Feed Link</a></li>
+        <li><a href="#">Media YouTube Portal</a></li>
+        <li><a href="mailto:verdiabio2025@gmail.com">Secure Email Endpoint</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Governance Matrix</div>
+      <ul class="footer-links">
+        <li><a href="#">Data Privacy Protocol</a></li>
+        <li><a href="#">Terms of Engagement</a></li>
+        <li><a href="#">Tracking Disclosures</a></li>
+        <li><a href="#">Liability Protections</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Veridia Energy Systems · Navi Mumbai, India</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Framework</a>
+      <a href="#">Data Security Rules</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-function show(id, el) {
-  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  if (el) el.classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-function closeNav() {
-  var links = document.getElementById('navLinks');
-  var btn = document.getElementById('navToggle');
-  if (links && btn) {
-    links.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
+// Dynamic Interface Observers
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// Immediate Trigger for Hero Viewport Elements
+document.querySelectorAll('#hero .reveal').forEach(el => {
+  setTimeout(() => el.classList.add('in'), 150);
+});
+
+// Dynamic Navbar Transitions
+const navEl = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    navEl.classList.add('scrolled');
+  } else {
+    navEl.classList.remove('scrolled');
   }
+}, { passive: true });
+
+// Page Compilation Exporter Utility
+function downloadSite() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement("a");
+  a.href = url; a.download = "veridia-energy-light-mix.html";
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
 }
-(function () {
-  var btn = document.getElementById('navToggle');
-  var links = document.getElementById('navLinks');
-  if (!btn || !links) return;
-  btn.addEventListener('click', function () {
-    var open = links.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 900) closeNav();
-  });
-})();
 </script>
+
+<div id="dl-btn" onclick="downloadSite()" title="Compile and download redesigned asset source code" style="position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:10px;background:#25855a;color:#fff;padding:12px 20px;border-radius:50px;font-family:Sora,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;box-shadow:0 12px 40px rgba(0,0,0,0.15);cursor:pointer;user-select:none;transition:all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  Download Redesigned Website
+</div>
+<style>
+  #dl-btn:hover { background: #1c6b47; transform: translateY(-3px); box-shadow: 0 16px 48px rgba(37,133,90,0.25); }
+  #dl-btn:active { transform: translateY(-1px); }
+</style>
+
 </body>
 </html>
